@@ -1,0 +1,205 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   HotBone 文華哈棒隊 - 全域美式復古運動 x 彩虹光暈自訂樣式
+   ========================================================================== */
+
+/* Google Fonts 載入 */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+
+:root {
+  --hb-burgundy: #800020;
+  --hb-gold: #D4AF37;
+  --hb-dark: #111111;
+  --hb-dark-card: #191214;
+  --hb-dark-accent: #241419;
+}
+
+body {
+  font-family: 'Noto Sans TC', 'Montserrat', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--hb-dark);
+  color: #f3f4f6;
+  overflow-x: hidden;
+}
+
+.font-retro {
+  font-family: 'Cinzel', 'Playfair Display', serif;
+}
+
+.font-headline {
+  font-family: 'Playfair Display', 'Noto Sans TC', serif;
+}
+
+/* 復古運動風斜線條紋背景 */
+.bg-vintage-stripes {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(128, 0, 32, 0.08),
+    rgba(128, 0, 32, 0.08) 15px,
+    rgba(0, 0, 0, 0.2) 15px,
+    rgba(0, 0, 0, 0.2) 30px
+  );
+}
+
+.bg-baseball-texture {
+  background-color: #111111;
+  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+/* Gay Pride 彩虹光暈與漸層 */
+.rainbow-gradient-text {
+  background: linear-gradient(90deg, #ff4545, #ffa500, #ffee00, #00d26a, #00bfff, #9d4edd, #ff4545);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbow-shift 5s linear infinite;
+}
+
+.rainbow-glow {
+  box-shadow: 0 0 25px rgba(255, 69, 69, 0.35), 0 0 45px rgba(0, 210, 106, 0.2), 0 0 60px rgba(157, 78, 221, 0.3);
+}
+
+.rainbow-border {
+  border-image: linear-gradient(135deg, #ff4545, #ffa500, #ffee00, #00d26a, #00bfff, #9d4edd) 1;
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+}
+
+.burgundy-glow {
+  box-shadow: 0 0 25px rgba(128, 0, 32, 0.6);
+}
+
+@keyframes rainbow-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 無縫跑馬燈 (Seamless Marquee) */
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  animation: scroll-marquee 28s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Hover 暫停跑馬燈（透過 CSS 亦提供支援，JS 同步監聽） */
+.marquee-wrapper:hover .marquee-content,
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
+/* 復古卡牌升起與微光效果 */
+.retro-card {
+  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background-color: var(--hb-dark-card);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  pointer-events: none;
+}
+
+.retro-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  border-color: var(--hb-gold);
+  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.4), 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.retro-card:hover::before {
+  left: 150%;
+}
+
+/* 老司機秘密專欄模糊解鎖效果 */
+.secret-blur-overlay {
+  transition: filter 0.8s ease, backdrop-filter 0.8s ease, opacity 0.8s ease;
+}
+
+.secret-locked .secret-content-inner {
+  filter: blur(16px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.secret-unlocked .secret-content-inner {
+  filter: blur(0px);
+  user-select: auto;
+  pointer-events: auto;
+}
+
+/* 棒球縫線邊框特效 */
+.baseball-stitching-top {
+  position: relative;
+}
+.baseball-stitching-top::before {
+  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  color: #ff3344;
+  font-size: 10px;
+  line-height: 6px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  opacity: 0.6;
+}
+
+/* 自訂滾動條 */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+::-webkit-scrollbar-thumb {
+  background: #800020;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+

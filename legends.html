@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>傳奇戰績 | HotBone 文華哈棒隊史詩戰役與影音</title>
+  <meta name="description" content="文華哈棒隊史詩賽事紀錄與多媒體專區 — 2014 夏可盃 OB 賽、2026 熊甲衝撞本壘 OB 賽、精選 YouTube 影片與哈棒幹話 Podcast。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'hb-burgundy': '#800020',
+            'hb-gold': '#D4AF37',
+            'hb-dark': '#111111',
+            'hb-dark-card': '#191214',
+            'hb-dark-accent': '#241419',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37]">
+
+  <!-- ======================================================================
+       共用導覽列 (Navbar)
+       ====================================================================== -->
+  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#800020]/60 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#800020] to-[#500014] border-2 border-[#D4AF37] flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
+            <span class="text-2xl">⚾</span>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl font-extrabold tracking-wider text-[#D4AF37] font-retro drop-shadow">HOTBONE</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-[#800020] text-amber-300 font-bold border border-[#D4AF37]/40">EST. 2003</span>
+            </div>
+            <p class="text-xs text-gray-400 tracking-widest font-medium">文華哈棒隊官方旗艦</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-3">
+          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            首頁
+          </a>
+          <a href="roster.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            哈棒陣容
+          </a>
+          <a href="legends.html" class="px-3 py-2 rounded-lg text-sm font-bold text-[#D4AF37] bg-[#800020]/40 border border-[#D4AF37]/50 shadow-inner">
+            傳奇戰績
+          </a>
+          <a href="merch.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            哈棒庶務
+          </a>
+          <a href="meet_the_team.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            團隊基地
+          </a>
+        </nav>
+
+        <!-- Easter Egg CTA Button -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="easter-egg-btn" type="button" class="relative group px-4 py-2 rounded-full font-bold text-xs tracking-wider uppercase overflow-hidden border border-[#D4AF37]/80 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
+            <span class="relative z-10 flex items-center space-x-1">
+              <span>🔞 老司機通道</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-label="切換選單" class="p-2 rounded-lg text-[#D4AF37] hover:bg-[#800020]/40 focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#160d10] border-b border-[#800020] px-4 pt-2 pb-6 space-y-2">
+      <a href="index.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        首頁
+      </a>
+      <a href="roster.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        哈棒陣容
+      </a>
+      <a href="legends.html" class="block px-4 py-2.5 rounded-lg text-base font-bold text-[#D4AF37] bg-[#800020]/50 border-l-4 border-[#D4AF37]">
+        傳奇戰績
+      </a>
+      <a href="merch.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        哈棒庶務
+      </a>
+      <a href="meet_the_team.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        團隊基地
+      </a>
+      <div class="pt-3">
+        <button class="easter-egg-trigger w-full text-center px-4 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white border border-[#D4AF37]">
+          🔞 老司機通道 (未滿18勿入)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       Header Banner
+       ====================================================================== -->
+  <section class="relative bg-gradient-to-b from-[#500014] via-[#1a0f12] to-[#111111] py-16 sm:py-20 border-b border-[#800020]/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#D4AF37]/50 text-xs font-bold text-[#D4AF37] mb-4">
+        <span>🏆 HALL OF FAME & BATTLES</span>
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black text-white font-retro tracking-wide">
+        史詩賽事與傳奇戰史
+      </h1>
+      <p class="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto font-headline">
+        汗水、肌肉、衝撞與無止盡的幹話 —— 哈棒隊二十年史詩級經典戰役回顧。
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       史詩賽事時間軸 (Timeline)
+       ====================================================================== -->
+  <section class="py-16 bg-[#111111] relative bg-baseball-texture">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">CHRONICLES</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-headline mt-1">
+          哈棒大事記與史詩戰役
+        </h2>
+      </div>
+
+      <!-- Timeline Structure -->
+      <div class="relative border-l-2 border-[#800020] ml-4 md:ml-32 space-y-16">
+        
+        <!-- Event 1: 2003 怡園草創戰役 -->
+        <div class="relative pl-8 md:pl-12 group">
+          <!-- Dot / Badge -->
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-[#800020] border-2 border-[#D4AF37] flex items-center justify-center text-xs font-bold text-[#D4AF37] shadow-lg group-hover:scale-125 transition-transform">
+            ⚾
+          </div>
+          
+          <div class="md:absolute md:-left-36 md:top-1 text-left md:text-right w-28">
+            <span class="text-2xl font-black text-[#D4AF37] font-retro">2003</span>
+            <div class="text-xs text-gray-400 font-medium">草創元年</div>
+          </div>
+
+          <!-- Card Content -->
+          <div class="retro-card rounded-2xl p-6 sm:p-8">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#800020]/60 text-xs font-bold text-amber-200 mb-3 border border-[#D4AF37]/30">
+              <span>🌱 文華高中 14 屆草創賽</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-headline">怡園綠色奇蹟：第一根棒子的誕生</h3>
+            <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+              2003 年文華高中怡園旁的紅土空地，一群高中生拿著向教官借來的鋁棒與兩顆舊軟皮球，開啟了「哈棒」傳奇。那一天沒有精美的護具，只有滿腔無處發洩的青春荷爾蒙，這場比賽確立了哈棒隊的核心座右銘：「棒球只是理由，聚在一起才是目的」。
+            </p>
+            <div class="mt-4 pt-4 border-t border-[#800020]/40 flex flex-wrap gap-4 text-xs text-gray-400">
+              <span>📍 比賽地點：台中市立文華高中怡園</span>
+              <span>🔥 關鍵戰績：揮棒次數 200+ / 尋找失球 3 小時</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2: 2014 夏可盃 OB 賽 -->
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-[#800020] border-2 border-[#D4AF37] flex items-center justify-center text-xs font-bold text-[#D4AF37] shadow-lg group-hover:scale-125 transition-transform">
+            🏆
+          </div>
+          
+          <div class="md:absolute md:-left-36 md:top-1 text-left md:text-right w-28">
+            <span class="text-2xl font-black text-[#D4AF37] font-retro">2014</span>
+            <div class="text-xs text-gray-400 font-medium">十載風雲</div>
+          </div>
+
+          <div class="retro-card rounded-2xl p-6 sm:p-8 border-2 border-[#D4AF37]/60">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-amber-950/70 text-xs font-bold text-amber-300 mb-3 border border-[#D4AF37]">
+              <span>🔥 史詩逆轉熱戰</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-headline">2014 夏可盃 OB 經典爭霸戰</h3>
+            <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+              隊史最具戲劇性的血脈噴張 OB 對決！在第七局下半落後 4 分的絕境下，隊長 Angus 發動「費洛蒙全體總攻擊」，不焚者副隊長蔡仲超連續擊出帶有 2 分打點的穿越安打，終場以 9:8 逆轉絕殺對手，全隊衝入場內激情擁抱，啤酒汗水灑滿球場！
+            </p>
+            <div class="mt-4 pt-4 border-t border-[#800020]/40 flex flex-wrap gap-4 text-xs text-gray-400">
+              <span>📍 比賽地點：台中太原壘球場</span>
+              <span>🎖️ 最終比數：HotBone 9 : 8 逆轉勝</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3: 2026 熊甲衝撞本壘 OB 賽 -->
+        <div class="relative pl-8 md:pl-12 group">
+          <div class="absolute -left-[17px] top-1.5 w-8 h-8 rounded-full bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white shadow-lg group-hover:scale-125 transition-transform animate-pulse">
+            💥
+          </div>
+          
+          <div class="md:absolute md:-left-36 md:top-1 text-left md:text-right w-28">
+            <span class="text-2xl font-black rainbow-gradient-text font-retro">2026</span>
+            <div class="text-xs text-pink-400 font-bold">未來史詩</div>
+          </div>
+
+          <div class="retro-card rounded-2xl p-6 sm:p-8 border-2 border-pink-600/80 rainbow-glow">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-pink-950/80 text-xs font-bold text-pink-300 mb-3 border border-pink-500">
+              <span>🌈 荷爾蒙大碰撞</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white font-headline">2026 熊甲衝撞本壘 OB 賽</h3>
+            <p class="text-gray-300 text-sm sm:text-base mt-3 leading-relaxed">
+              哈棒隊二十三週年跨時代體肉顛峰對決！主打高密度肌肉碰撞與極限費洛蒙防禦。副隊長蔡仲超坐鎮本壘板，面對 100 公斤級熊甲跑者的極速滑壘衝撞，以鋼鐵般的意志牢牢護球，完成隊史上最震撼人心的本壘刺殺！
+            </p>
+            <div class="mt-4 pt-4 border-t border-pink-900/50 flex flex-wrap gap-4 text-xs text-pink-200">
+              <span>📍 比賽地點：文華哈棒專屬主場</span>
+              <span>⚡ 費洛蒙衝擊波：震碎場邊 3 支啤酒瓶</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       多媒體專區 (YouTube 嵌入 + Podcast 播放器)
+       ====================================================================== -->
+  <section class="py-16 bg-[#160d10] border-t-2 border-[#800020]/60 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37] bg-[#800020]/50 px-3.5 py-1 rounded-full border border-[#D4AF37]/30">
+          MULTIMEDIA CENTER
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline mt-4">
+          哈棒影音與幹話聲波
+        </h2>
+        <p class="text-gray-400 mt-2 text-sm sm:text-base">
+          收錄比賽精華剪輯、名場面重播與每週熱播的哈棒播客錄音
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+        
+        <!-- 左側：YouTube 影片嵌入佔位區 (7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="retro-card rounded-2xl p-6 border-2 border-[#D4AF37]/60">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center space-x-2">
+                <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                <span class="text-xs text-gray-400 font-mono ml-2">HOTBONE-TV // EPISODE-4K</span>
+              </div>
+              <span class="text-xs px-2 py-0.5 rounded bg-red-900 text-red-200 font-bold">🔴 官方影音</span>
+            </div>
+
+            <!-- YouTube Video Placeholder Frame -->
+            <div class="relative w-full aspect-video rounded-xl overflow-hidden bg-black border border-[#800020]">
+              <iframe 
+                class="w-full h-full object-cover"
+                src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ?autoplay=0&controls=1" 
+                title="HotBone 文華哈棒隊 史詩精華集錦" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+              </iframe>
+            </div>
+
+            <div class="mt-5">
+              <h3 class="text-xl font-bold text-white font-headline">【哈棒精華】2014-2026 史詩名場面大集結：三振、衝撞與消失的手套</h3>
+              <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                由隊長 Angus 親自操刀剪輯，高清重現陳言愈漏踩三壘、智傑無畏 5K 以及副隊長本壘肉搏的珍貴歷史瞬間。
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：Podcast 播放器 UI (5 cols) -->
+        <div class="lg:col-span-5">
+          <div class="retro-card rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-full border-2 border-[#800020]">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">HOTBONE PODCAST</span>
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-[#800020] text-amber-200 border border-[#D4AF37]/40 font-bold">
+                  EP. 69
+                </span>
+              </div>
+
+              <!-- Podcast Cover -->
+              <div class="flex items-center space-x-4 mb-6">
+                <div class="w-20 h-20 rounded-xl overflow-hidden bg-[#800020] border border-[#D4AF37] flex-shrink-0">
+                  <img src="https://placehold.co/200x200/800020/D4AF37?text=HOTBONE+PODCAST" alt="Podcast Cover" class="w-full h-full object-cover">
+                </div>
+                <div>
+                  <h4 class="text-lg font-bold text-white font-headline">哈棒深夜幹話專線</h4>
+                  <p class="text-xs text-[#D4AF37] font-medium mt-1">主講：發言人 Zizen x 隊長 Angus</p>
+                  <p class="text-[11px] text-gray-400 mt-1">單元：那些年在怡園被沒收的手套</p>
+                </div>
+              </div>
+
+              <!-- Audio Wave Visualizer Simulation -->
+              <div class="bg-black/60 rounded-xl p-4 border border-[#800020]/40 mb-6">
+                <div class="flex items-end justify-center space-x-1.5 h-16">
+                  <span class="podcast-wave w-1.5 bg-[#D4AF37] h-6 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#800020] h-10 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#D4AF37] h-14 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-pink-500 h-8 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#D4AF37] h-16 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#800020] h-12 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#D4AF37] h-7 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-pink-500 h-11 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#D4AF37] h-5 rounded-full"></span>
+                  <span class="podcast-wave w-1.5 bg-[#800020] h-13 rounded-full"></span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-[#2a171d] rounded-full h-2 mt-4 overflow-hidden cursor-pointer">
+                  <div id="podcast-progress" class="bg-gradient-to-r from-[#800020] to-[#D4AF37] h-2 rounded-full transition-all duration-300" style="width: 35%;"></div>
+                </div>
+
+                <div class="flex justify-between text-[11px] text-gray-400 mt-2 font-mono">
+                  <span>14:28</span>
+                  <span>42:00</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="flex items-center justify-center space-x-6 pt-4 border-t border-[#800020]/40">
+              <button type="button" aria-label="上一首" class="p-2 text-gray-400 hover:text-[#D4AF37] transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
+              </button>
+
+              <button id="podcast-play-btn" type="button" aria-label="播放或暫停" class="w-14 h-14 rounded-full bg-gradient-to-br from-[#800020] to-[#D4AF37] text-white flex items-center justify-center shadow-xl hover:scale-110 transition-transform">
+                <svg id="podcast-play-icon" class="w-7 h-7 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <svg id="podcast-pause-icon" class="w-7 h-7 hidden" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+              </button>
+
+              <button type="button" aria-label="下一首" class="p-2 text-gray-400 hover:text-[#D4AF37] transition">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       共用頁尾 (Footer)
+       ====================================================================== -->
+  <footer class="bg-[#0c0809] border-t border-[#800020] text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <span class="text-3xl">⚾</span>
+            <span class="text-2xl font-black text-[#D4AF37] font-retro tracking-wider">HOTBONE 文華哈棒隊</span>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md leading-relaxed">
+            創立於 2003 年台中市立文華高中 14 屆。「棒球只是理由，聚在一起才是目的。」揮灑費洛蒙汗汁，生氣勃勃走出校園。
+          </p>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#1f1417] border border-[#D4AF37]/30 text-xs">
+            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 via-green-400 to-purple-500"></span>
+            <span class="rainbow-gradient-text font-bold">Gay Pride & Vintage Baseball Ally</span>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">快速導航</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-[#D4AF37] transition-colors">首頁</a></li>
+            <li><a href="roster.html" class="hover:text-[#D4AF37] transition-colors">哈棒陣容 (名冊)</a></li>
+            <li><a href="legends.html" class="hover:text-[#D4AF37] transition-colors">傳奇戰績 (戰史)</a></li>
+            <li><a href="merch.html" class="hover:text-[#D4AF37] transition-colors">哈棒庶務 (周邊)</a></li>
+            <li><a href="meet_the_team.html" class="hover:text-[#D4AF37] transition-colors">團隊基地 (發源地)</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">老司機機密</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <button class="easter-egg-trigger text-left text-pink-400 hover:text-pink-300 transition-colors font-bold">
+                🔞 老司機專欄 (未滿18勿入)
+              </button>
+            </li>
+            <li><a href="merch.html#secret" class="hover:text-[#D4AF37] transition-colors">哈棒黑歷史照片庫</a></li>
+            <li><a href="meet_the_team.html#contact" class="hover:text-[#D4AF37] transition-colors">發射費洛蒙聯絡我們</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-8 border-t border-[#800020]/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2003-2026 HotBone Baseball Club (文華哈棒隊). All Rights Reserved.</p>
+        <p class="mt-2 sm:mt-0">Powered by HTML5, Tailwind CSS & Vanilla JS</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
+
