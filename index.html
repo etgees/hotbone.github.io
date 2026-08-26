@@ -1,41 +1,478 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-TW" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HotBone 文華哈棒隊 | 火力哈棒場！</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HotBone 文華哈棒隊 | 官方網站</title>
+  <meta name="description" content="文華哈棒隊 (HotBone) 官方網站 — 揮灑費洛蒙汗汁，生氣勃勃走出校園！美式復古運動風結合 Gay Pride 彩虹光暈與惡搞幹話迷因。">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            'hb-burgundy': '#800020',
+            'hb-gold': '#D4AF37',
+            'hb-dark': '#111111',
+            'hb-dark-card': '#191214',
+            'hb-dark-accent': '#241419',
+          }
         }
-        body {
-            background-color: #0d0005; /* 深色背景襯托火焰風格 */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow: hidden;
-        }
-        .img-container {
-            width: 100vw;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* 確保整張圖完整顯示不被裁切 */
-        }
-    </style>
+      }
+    }
+  </script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<body>
-    <div class="img-container">
-        <!-- 請將 src 中的圖片名稱替換為你的檔名 -->
-        <img src="index.png" alt="HotBone 文華哈棒隊 火力哈棒場！">
+<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37]">
+
+  <!-- ======================================================================
+       共用導覽列 (Navbar)
+       ====================================================================== -->
+  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#800020]/60 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#800020] to-[#500014] border-2 border-[#D4AF37] flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
+            <span class="text-2xl">⚾</span>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-2xl font-extrabold tracking-wider text-[#D4AF37] font-retro drop-shadow">HOTBONE</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-[#800020] text-amber-300 font-bold border border-[#D4AF37]/40">EST. 2003</span>
+            </div>
+            <p class="text-xs text-gray-400 tracking-widest font-medium">文華哈棒隊官方旗艦</p>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-3">
+          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-bold text-[#D4AF37] bg-[#800020]/40 border border-[#D4AF37]/50 shadow-inner">
+            首頁
+          </a>
+          <a href="roster.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            哈棒陣容
+          </a>
+          <a href="legends.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            傳奇戰績
+          </a>
+          <a href="merch.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            哈棒庶務
+          </a>
+          <a href="meet_the_team.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
+            團隊基地
+          </a>
+        </nav>
+
+        <!-- Easter Egg CTA Button -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="easter-egg-btn" type="button" class="relative group px-4 py-2 rounded-full font-bold text-xs tracking-wider uppercase overflow-hidden border border-[#D4AF37]/80 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
+            <span class="relative z-10 flex items-center space-x-1">
+              <span>🔞 老司機通道</span>
+            </span>
+          </button>
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <div class="flex md:hidden">
+          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-label="切換選單" class="p-2 rounded-lg text-[#D4AF37] hover:bg-[#800020]/40 focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
     </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#160d10] border-b border-[#800020] px-4 pt-2 pb-6 space-y-2">
+      <a href="index.html" class="block px-4 py-2.5 rounded-lg text-base font-bold text-[#D4AF37] bg-[#800020]/50 border-l-4 border-[#D4AF37]">
+        首頁
+      </a>
+      <a href="roster.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        哈棒陣容
+      </a>
+      <a href="legends.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        傳奇戰績
+      </a>
+      <a href="merch.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        哈棒庶務
+      </a>
+      <a href="meet_the_team.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
+        團隊基地
+      </a>
+      <div class="pt-3">
+        <button class="easter-egg-trigger w-full text-center px-4 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white border border-[#D4AF37]">
+          🔞 老司機通道 (未滿18勿入)
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================
+       16:9 Hero Banner
+       ====================================================================== -->
+  <section class="relative w-full bg-[#111111] overflow-hidden">
+    <!-- 16:9 比例容器 -->
+    <div class="relative w-full aspect-[16/9] min-h-[500px] max-h-[820px] flex items-center justify-center">
+      
+      <!-- 背景圖片與疊層 -->
+      <img src="https://placehold.co/1920x1080/800020/D4AF37?text=HOTBONE+BASEBALL+2003" 
+           alt="HotBone 文華哈棒隊 旗艦形象主圖" 
+           class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.45] contrast-125">
+      
+      <!-- 漸層暗角與美式復古運動斜紋遮罩 -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#111111] via-[#800020]/40 to-[#111111]/80"></div>
+      <div class="absolute inset-0 bg-vintage-stripes opacity-40"></div>
+
+      <!-- Hero 主內容 -->
+      <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
+        
+        <!-- 彩虹 Pride 標章 -->
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#D4AF37]/60 shadow-xl backdrop-blur-md mb-4 sm:mb-6 animate-pulse">
+          <span class="w-3 h-3 rounded-full bg-gradient-to-r from-red-500 via-yellow-400 to-purple-500"></span>
+          <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest rainbow-gradient-text">
+            PRIDE & VINTAGE BASEBALL PASSION
+          </span>
+          <span class="text-xs text-amber-300">★ 2003-2026</span>
+        </div>
+
+        <!-- H1 大標 -->
+        <h1 class="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tight text-white font-retro drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)]">
+          <span class="text-transparent bg-clip-text bg-gradient-to-b from-[#FFF5D0] via-[#D4AF37] to-[#8C6D1F]">
+            HotBone
+          </span>
+        </h1>
+
+        <!-- 副標題 -->
+        <p class="mt-3 sm:mt-6 text-xl sm:text-2xl md:text-3xl font-bold text-gray-200 max-w-3xl font-headline leading-relaxed drop-shadow-md">
+          文華哈棒隊 — <span class="text-[#D4AF37] border-b-2 border-[#800020]">揮灑費洛蒙汗汁</span>，生氣勃勃走出校園！
+        </p>
+
+        <p class="mt-2 sm:mt-4 text-xs sm:text-sm md:text-base text-gray-300 max-w-2xl font-medium tracking-wide">
+          創立於文華高中 14 屆・二十年直男幹話與微甲兄弟情的終極體現
+        </p>
+
+        <!-- 動作按鈕 -->
+        <div class="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
+          <a href="roster.html" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#800020] to-[#a8002a] text-[#FFF5D0] font-bold text-sm sm:text-base border-2 border-[#D4AF37] shadow-xl hover:shadow-[#800020]/80 hover:scale-105 transition-all duration-300 flex items-center space-x-2">
+            <span>⚾ 探索哈棒陣容</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          
+          <a href="merch.html" class="px-7 py-3.5 rounded-xl bg-black/70 hover:bg-black text-[#D4AF37] font-bold text-sm sm:text-base border-2 border-[#D4AF37]/60 hover:border-[#D4AF37] shadow-xl hover:scale-105 transition-all duration-300">
+            🛒 參觀哈棒庶務 (周邊)
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       金句無縫跑馬燈 (Seamless Marquee)
+       ====================================================================== -->
+  <section class="relative bg-gradient-to-r from-[#500014] via-[#800020] to-[#500014] border-y-2 border-[#D4AF37] py-3 overflow-hidden shadow-inner">
+    <div class="marquee-wrapper">
+      <div class="marquee-content text-[#FFF5D0] font-extrabold text-sm sm:text-base tracking-wider flex items-center space-x-12 uppercase">
+        <span class="flex items-center space-x-2"><span>⚾</span><span>「棒球只是理由，聚在一起才是目的」</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>🔥</span><span>文華高中 14 屆創立・費洛蒙拉警報！</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>🌈</span><span>直男微甲的最高殿堂・揮灑汗水二十載</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>💥</span><span>生氣勃勃走出校園・棒棒相連到天邊</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+      </div>
+      <div class="marquee-content text-[#FFF5D0] font-extrabold text-sm sm:text-base tracking-wider flex items-center space-x-12 uppercase" aria-hidden="true">
+        <span class="flex items-center space-x-2"><span>⚾</span><span>「棒球只是理由，聚在一起才是目的」</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>🔥</span><span>文華高中 14 屆創立・費洛蒙拉警報！</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>🌈</span><span>直男微甲的最高殿堂・揮灑汗水二十載</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+        <span class="flex items-center space-x-2"><span>💥</span><span>生氣勃勃走出校園・棒棒相連到天邊</span></span>
+        <span class="text-[#D4AF37]">✦</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       品牌故事區 (Brand Story)
+       ====================================================================== -->
+  <section class="py-16 sm:py-24 bg-[#111111] relative bg-baseball-texture">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- 左側：復古照片展示卡 -->
+        <div class="lg:col-span-5">
+          <div class="relative group">
+            <div class="absolute -inset-2 bg-gradient-to-r from-red-600 via-yellow-500 to-purple-600 rounded-3xl blur-md opacity-40 group-hover:opacity-75 transition duration-500"></div>
+            <div class="relative rounded-2xl overflow-hidden border-2 border-[#D4AF37] bg-[#1a1114] shadow-2xl">
+              <img src="https://placehold.co/800x900/800020/D4AF37?text=Wen-Hua+High+School+2003" 
+                   alt="文華高中怡園發源地" 
+                   class="w-full h-[420px] object-cover filter contrast-110">
+              <div class="p-6 bg-gradient-to-t from-[#111111] via-[#1a1114] to-transparent">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">發源地檔案 #001</span>
+                  <span class="text-xs text-gray-400">台中西屯・文華高中怡園</span>
+                </div>
+                <h4 class="text-xl font-bold text-white mt-1 font-headline">怡園紅土上的費洛蒙初啼</h4>
+                <p class="text-xs text-gray-300 mt-2">那一年，手套可能會失蹤，但男人的情誼永不褪色。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：故事文字與數值 -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#800020]/60 border border-[#D4AF37]/50 text-xs font-bold text-[#D4AF37]">
+            <span>📖 隊史起源與精神</span>
+          </div>
+
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white font-headline leading-tight">
+            自 2003 年起，<br>
+            以<span class="text-[#D4AF37] border-b-4 border-[#800020]">哈棒之名</span>撼動大台中！
+          </h2>
+
+          <p class="text-gray-300 text-base sm:text-lg leading-relaxed">
+            文華哈棒隊 (HotBone) 誕生於 <strong class="text-[#D4AF37]">2003 年台中市立文華高中第 14 屆</strong>。一群熱愛棒球、更熱愛幹話與彼此肌肉線條的熱血少年，在校園怡園旁的紅土空地揮擊出第一顆熱血之球。
+          </p>
+
+          <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+            從青澀的高中歲月到步入社會的成熟大叔，二十餘載時光流轉，我們換過無數件球衣、吞過無數次三振，但「哈棒」的核心靈魂從未改變 —— 棒球只是讓我們名正言順聚在一起噴射費洛蒙的藉口，真正的勝利，是每次賽後大口吃肉、大聲嘲笑隊友失誤的痛快！
+          </p>
+
+          <!-- 趣味數據格 -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-[#800020]/60">
+            <div class="p-4 rounded-xl bg-[#1a1114] border border-[#D4AF37]/30 text-center">
+              <div class="text-2xl sm:text-3xl font-black text-[#D4AF37] font-retro">20+</div>
+              <div class="text-xs text-gray-400 mt-1">年隊史傳承</div>
+            </div>
+            <div class="p-4 rounded-xl bg-[#1a1114] border border-[#D4AF37]/30 text-center">
+              <div class="text-2xl sm:text-3xl font-black text-[#D4AF37] font-retro">100+</div>
+              <div class="text-xs text-gray-400 mt-1">經典幹話戰役</div>
+            </div>
+            <div class="p-4 rounded-xl bg-[#1a1114] border border-[#D4AF37]/30 text-center">
+              <div class="text-2xl sm:text-3xl font-black text-[#D4AF37] font-retro">0%</div>
+              <div class="text-xs text-gray-400 mt-1">正經打球機率</div>
+            </div>
+            <div class="p-4 rounded-xl bg-[#1a1114] border border-[#D4AF37]/30 text-center">
+              <div class="text-2xl sm:text-3xl font-black text-[#D4AF37] font-retro">100%</div>
+              <div class="text-xs text-gray-400 mt-1">兄弟費洛蒙</div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       幹部快照卡片 Grid (導向 roster.html)
+       ====================================================================== -->
+  <section class="py-16 sm:py-24 bg-[#140e10] border-t border-[#800020]/40 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- 區塊標題 -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#D4AF37] bg-[#800020]/50 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/40">
+          COMMAND CENTER
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline mt-4">
+          核心幹部陣容快照
+        </h2>
+        <p class="text-gray-400 mt-3 text-sm sm:text-base">
+          帶領文華哈棒隊生氣勃勃走過二十載的費洛蒙掌舵者們
+        </p>
+      </div>
+
+      <!-- 4 幹部 Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        
+        <!-- 隊長 Angus -->
+        <a href="roster.html#angus" class="retro-card rounded-2xl p-5 flex flex-col group block">
+          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40">
+            <img src="https://placehold.co/400x500/800020/D4AF37?text=Captain+Angus" 
+                 alt="隊長 Angus 高玩" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-2 right-2 bg-[#800020] text-amber-300 text-[10px] font-black px-2 py-0.5 rounded border border-[#D4AF37]">
+              #01 隊長
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-headline group-hover:text-[#D4AF37] transition-colors">高玩 Angus</h3>
+          <p class="text-xs text-[#D4AF37] font-semibold mt-0.5">隊長 / 費洛蒙總指揮官</p>
+          <p class="text-xs text-gray-400 mt-2 line-clamp-2">掌控全場哈棒節奏，號稱文華怡園最長揮棒距離保持人。</p>
+          <div class="mt-4 pt-3 border-t border-[#800020]/40 flex items-center justify-between text-xs text-gray-400">
+            <span>費洛蒙濃度 99%</span>
+            <span class="text-[#D4AF37] group-hover:translate-x-1 transition-transform">詳情 →</span>
+          </div>
+        </a>
+
+        <!-- 副隊長 蔡仲超菜花 -->
+        <a href="roster.html#cai" class="retro-card rounded-2xl p-5 flex flex-col group block">
+          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40">
+            <img src="https://placehold.co/400x500/800020/D4AF37?text=Vice+Captain+Cai" 
+                 alt="副隊長 蔡仲超菜花" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-2 right-2 bg-gradient-to-r from-red-600 to-orange-500 text-white text-[10px] font-black px-2 py-0.5 rounded border border-[#D4AF37]">
+              #00 不焚者
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-headline group-hover:text-[#D4AF37] transition-colors">蔡仲超菜花</h3>
+          <p class="text-xs text-[#D4AF37] font-semibold mt-0.5">副隊長 / 浴火重生不焚者</p>
+          <p class="text-xs text-gray-400 mt-2 line-clamp-2">球場上的烈火戰神，歷經無數戰火依然屹立不搖的靈魂支柱。</p>
+          <div class="mt-4 pt-3 border-t border-[#800020]/40 flex items-center justify-between text-xs text-gray-400">
+            <span>耐火抗性 MAX</span>
+            <span class="text-[#D4AF37] group-hover:translate-x-1 transition-transform">詳情 →</span>
+          </div>
+        </a>
+
+        <!-- 發言人 Zizen -->
+        <a href="roster.html#zizen" class="retro-card rounded-2xl p-5 flex flex-col group block">
+          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40">
+            <img src="https://placehold.co/400x500/800020/D4AF37?text=Spokesperson+Zizen" 
+                 alt="發言人 Zizen" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-2 right-2 bg-[#800020] text-amber-300 text-[10px] font-black px-2 py-0.5 rounded border border-[#D4AF37]">
+              #69 發言人
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-headline group-hover:text-[#D4AF37] transition-colors">Zizen</h3>
+          <p class="text-xs text-[#D4AF37] font-semibold mt-0.5">公關發言人 / 幹話哲學家</p>
+          <p class="text-xs text-gray-400 mt-2 line-clamp-2">以嘴遁瓦解對手防線，哈棒隊最尖銳的輿論重砲手。</p>
+          <div class="mt-4 pt-3 border-t border-[#800020]/40 flex items-center justify-between text-xs text-gray-400">
+            <span>幹話殺傷力 100</span>
+            <span class="text-[#D4AF37] group-hover:translate-x-1 transition-transform">詳情 →</span>
+          </div>
+        </a>
+
+        <!-- 財務長 王喬緯 -->
+        <a href="roster.html#wang" class="retro-card rounded-2xl p-5 flex flex-col group block">
+          <div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40">
+            <img src="https://placehold.co/400x500/800020/D4AF37?text=CFO+Wang" 
+                 alt="財務長 王喬緯" 
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+            <div class="absolute top-2 right-2 bg-[#800020] text-amber-300 text-[10px] font-black px-2 py-0.5 rounded border border-[#D4AF37]">
+              #88 財務長
+            </div>
+          </div>
+          <h3 class="text-xl font-bold text-white font-headline group-hover:text-[#D4AF37] transition-colors">王喬緯</h3>
+          <p class="text-xs text-[#D4AF37] font-semibold mt-0.5">財務長 / 隊費守護者</p>
+          <p class="text-xs text-gray-400 mt-2 line-clamp-2">精準掌控每一筆隊費與啤酒預算，哈棒隊不可或缺的經濟命脈。</p>
+          <div class="mt-4 pt-3 border-t border-[#800020]/40 flex items-center justify-between text-xs text-gray-400">
+            <span>公款查核率 100%</span>
+            <span class="text-[#D4AF37] group-hover:translate-x-1 transition-transform">詳情 →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <!-- 查看更多按鈕 -->
+      <div class="mt-12 text-center">
+        <a href="roster.html" class="inline-flex items-center space-x-2 px-8 py-3.5 rounded-xl bg-transparent hover:bg-[#800020]/30 text-[#D4AF37] font-bold border-2 border-[#D4AF37] transition-all duration-300 hover:scale-105">
+          <span>查看全體隊員與傳奇黑歷史名冊</span>
+          <span>→</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       CTA 召集令 Banner
+       ====================================================================== -->
+  <section class="py-16 bg-gradient-to-r from-[#800020] via-[#500014] to-[#800020] border-y-2 border-[#D4AF37] relative overflow-hidden">
+    <div class="max-w-5xl mx-auto px-4 text-center relative z-10">
+      <h2 class="text-3xl sm:text-5xl font-black text-[#FFF5D0] font-headline mb-4">
+        準備好加入這場二十年的荷爾蒙風暴了嗎？
+      </h2>
+      <p class="text-gray-200 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-medium">
+        無論你是文華校友、直男同胞還是彩虹盟友，只要你熱愛棒球、能忍受無止盡的幹話，哈棒基地隨時為你敞開！
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="meet_the_team.html" class="px-8 py-3.5 rounded-xl bg-[#D4AF37] text-black font-extrabold shadow-2xl hover:bg-amber-300 hover:scale-105 transition-all">
+          🚀 前往團隊基地・發射費洛蒙
+        </a>
+        <a href="legends.html" class="px-8 py-3.5 rounded-xl bg-black/60 text-[#D4AF37] border border-[#D4AF37] font-bold hover:bg-black hover:scale-105 transition-all">
+          🏆 回顧歷史戰役
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       共用頁尾 (Footer)
+       ====================================================================== -->
+  <footer class="bg-[#0c0809] border-t border-[#800020] text-gray-400 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
+        
+        <!-- 品牌區 -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center space-x-3">
+            <span class="text-3xl">⚾</span>
+            <span class="text-2xl font-black text-[#D4AF37] font-retro tracking-wider">HOTBONE 文華哈棒隊</span>
+          </div>
+          <p class="text-sm text-gray-400 max-w-md leading-relaxed">
+            創立於 2003 年台中市立文華高中 14 屆。「棒球只是理由，聚在一起才是目的。」揮灑費洛蒙汗汁，生氣勃勃走出校園。
+          </p>
+          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#1f1417] border border-[#D4AF37]/30 text-xs">
+            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 via-green-400 to-purple-500"></span>
+            <span class="rainbow-gradient-text font-bold">Gay Pride & Vintage Baseball Ally</span>
+          </div>
+        </div>
+
+        <!-- 快速導覽 -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">快速導航</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-[#D4AF37] transition-colors">首頁</a></li>
+            <li><a href="roster.html" class="hover:text-[#D4AF37] transition-colors">哈棒陣容 (名冊)</a></li>
+            <li><a href="legends.html" class="hover:text-[#D4AF37] transition-colors">傳奇戰績 (戰史)</a></li>
+            <li><a href="merch.html" class="hover:text-[#D4AF37] transition-colors">哈棒庶務 (周邊)</a></li>
+            <li><a href="meet_the_team.html" class="hover:text-[#D4AF37] transition-colors">團隊基地 (發源地)</a></li>
+          </ul>
+        </div>
+
+        <!-- 機密與彩蛋 -->
+        <div>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">老司機機密</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <button class="easter-egg-trigger text-left text-pink-400 hover:text-pink-300 transition-colors font-bold">
+                🔞 老司機專欄 (未滿18勿入)
+              </button>
+            </li>
+            <li><a href="merch.html#secret" class="hover:text-[#D4AF37] transition-colors">哈棒黑歷史照片庫</a></li>
+            <li><a href="meet_the_team.html#contact" class="hover:text-[#D4AF37] transition-colors">發射費洛蒙聯絡我們</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- 版權聲明 -->
+      <div class="pt-8 border-t border-[#800020]/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+        <p>© 2003-2026 HotBone Baseball Club (文華哈棒隊). All Rights Reserved.</p>
+        <p class="mt-2 sm:mt-0">Powered by HTML5, Tailwind CSS & Vanilla JS</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
