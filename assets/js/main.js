@@ -1,6 +1,6 @@
 /**
  * HotBone 文華哈棒隊 - 主核心腳本
- * 包含老司機彩蛋導向、跑馬燈暫停、老司機專欄解鎖、表單互動與行動版導覽列
+ * 包含老司機彩蛋導向、跑馬燈暫停、老司機專欄解鎖、表單互動、球員篩選與行動版導覽列
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,7 +10,25 @@ document.addEventListener('DOMContentLoaded', () => {
   initSecretSection();
   initPheromoneForm();
   initPodcastPlayer();
+  initRosterFilter();
+  setActiveNavLink();
 });
+
+/**
+ * 設定當前頁面導覽列 active 狀態
+ */
+function setActiveNavLink() {
+  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+  const navLinks = document.querySelectorAll('.nav-link');
+  
+  navLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (currentPath === '' && href === 'index.html')) {
+      link.classList.add('text-[#D4AF37]', 'font-bold', 'border-b-2', 'border-[#D4AF37]');
+      link.classList.remove('text-gray-300');
+    }
+  });
+}
 
 /**
  * 1. 老司機彩蛋按鈕監聽
@@ -23,7 +41,6 @@ function initEasterEgg() {
       e.preventDefault();
       const warningText = '【老司機警示】未滿 18 歲請由大蟒蛇陪同觀看！\n\n確定要進入哈棒隊深夜機密領域嗎？';
       if (window.confirm(warningText)) {
-        // 如果目前就在 merch.html，直接捲動並解鎖
         if (window.location.pathname.includes('merch.html')) {
           window.location.hash = 'secret';
           unlockSecretArea();
@@ -32,7 +49,6 @@ function initEasterEgg() {
             secretEl.scrollIntoView({ behavior: 'smooth' });
           }
         } else {
-          // 否則導向至 merch.html#secret
           window.location.href = 'merch.html#secret';
         }
       }
@@ -136,7 +152,6 @@ function unlockSecretArea() {
  */
 function initPheromoneForm() {
   const form = document.getElementById('pheromone-form');
-  const toast = document.getElementById('pheromone-toast');
 
   if (form) {
     form.addEventListener('submit', (e) => {
@@ -227,3 +242,37 @@ function initPodcastPlayer() {
   });
 }
 
+/**
+ * 7. 球員名冊篩選器 (roster.html)
+ */
+function initRosterFilter() {
+  const filterButtons = document.querySelectorAll('.roster-filter-btn');
+  const playerCards = document.querySelectorAll('.player-card-item');
+
+  if (!filterButtons.length || !playerCards.length) return;
+
+  filterButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // 更新按鈕樣式
+      filterButtons.forEach(b => {
+        b.classList.remove('bg-[#800020]', 'text-[#D4AF37]', 'border-[#D4AF37]');
+        b.classList.add('bg-[#1a1416]', 'text-gray-400', 'border-gray-700');
+      });
+      btn.classList.remove('bg-[#1a1416]', 'text-gray-400', 'border-gray-700');
+      btn.classList.add('bg-[#800020]', 'text-[#D4AF37]', 'border-[#D4AF37]');
+
+      // 篩選卡牌
+      playerCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          card.style.display = 'block';
+          card.classList.add('animate-fadeIn');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}

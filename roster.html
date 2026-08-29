@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>哈棒陣容 | HotBone 文華哈棒隊官方名冊</title>
-  <meta name="description" content="文華哈棒隊核心幹部與傳奇黑歷史名冊 — 隊長 Angus、副隊長不焚者蔡仲超菜花、發言人 Zizen、財務長王喬緯、悲劇全壘打陳言愈、5K智傑、消失的手套柏辰。">
-  
+  <title>球員誌 Roster | HotBone 文華哈棒隊</title>
+  <meta name="description" content="文華哈棒隊 (HotBone) 球員誌 — 隊長 Angus、不焚者蔡仲、費洛蒙擔當 Zizen、大蟒蛇彥文等傳奇隊員卡牌與能力值。">
+  <link rel="icon" type="image/png" href="assets/images/logo-emblem.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,11 +15,16 @@
       theme: {
         extend: {
           colors: {
-            'hb-burgundy': '#800020',
-            'hb-gold': '#D4AF37',
-            'hb-dark': '#111111',
-            'hb-dark-card': '#191214',
-            'hb-dark-accent': '#241419',
+            hb: {
+              burgundy: '#800020',
+              'burgundy-light': '#9d1135',
+              gold: '#D4AF37',
+              'gold-light': '#f3cf65',
+              dark: '#111111',
+              surface: '#181516',
+              card: '#1f181a',
+              accent: '#2c1b20'
+            }
           }
         }
       }
@@ -28,60 +34,46 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37]">
+<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37] bg-baseball-texture">
 
-  <!-- ======================================================================
-       共用導覽列 (Navbar)
-       ====================================================================== -->
-  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#800020]/60 shadow-lg">
+  <!-- 頂部導覽列 (Navbar) -->
+  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#D4AF37]/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Logo -->
+        <!-- Brand Logo -->
         <a href="index.html" class="flex items-center space-x-3 group">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#800020] to-[#500014] border-2 border-[#D4AF37] flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
-            <span class="text-2xl">⚾</span>
-          </div>
-          <div>
-            <div class="flex items-center space-x-2">
-              <span class="text-2xl font-extrabold tracking-wider text-[#D4AF37] font-retro drop-shadow">HOTBONE</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-[#800020] text-amber-300 font-bold border border-[#D4AF37]/40">EST. 2003</span>
-            </div>
-            <p class="text-xs text-gray-400 tracking-widest font-medium">文華哈棒隊官方旗艦</p>
+          <img src="assets/images/logo-emblem.png" alt="HotBone Emblem" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300">
+          <div class="flex flex-col">
+            <span class="text-2xl font-black tracking-wider text-[#D4AF37] font-sport">HOT BONE</span>
+            <span class="text-[10px] tracking-widest text-gray-400 font-bold uppercase -mt-1">文華哈棒隊 官方網站</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-1 lg:space-x-3">
-          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            首頁
-          </a>
-          <a href="roster.html" class="px-3 py-2 rounded-lg text-sm font-bold text-[#D4AF37] bg-[#800020]/40 border border-[#D4AF37]/50 shadow-inner">
-            哈棒陣容
-          </a>
-          <a href="legends.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            傳奇戰績
-          </a>
-          <a href="merch.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            哈棒庶務
-          </a>
-          <a href="meet_the_team.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            團隊基地
-          </a>
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-4">
+          <a href="index.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">首頁</a>
+          <a href="roster.html" class="nav-link px-3 py-2 text-sm font-semibold text-[#D4AF37] hover:text-[#D4AF37] transition">⚾ 球員誌</a>
+          <a href="legends.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">🏆 傳奇 & Podcast</a>
+          <a href="merch.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">🛍️ 球隊周邊</a>
+          <button id="easter-egg-btn" class="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-red-600 via-purple-600 to-blue-500 text-white shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all">
+            🔞 老司機秘密
+          </button>
         </nav>
 
-        <!-- Easter Egg CTA Button -->
-        <div class="hidden sm:flex items-center space-x-3">
-          <button id="easter-egg-btn" type="button" class="relative group px-4 py-2 rounded-full font-bold text-xs tracking-wider uppercase overflow-hidden border border-[#D4AF37]/80 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
-            <span class="relative z-10 flex items-center space-x-1">
-              <span>🔞 老司機通道</span>
-            </span>
-          </button>
+        <!-- Social Icons -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <a href="https://www.instagram.com/hotbone_whsh" target="_blank" class="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.facebook.com/whshhotboner" target="_blank" class="text-gray-400 hover:text-blue-400 transition" title="Facebook">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.374 14.5 5 15.5 5H18V0h-3.808C10.595 0 9 1.583 9 4.615V8z"/></svg>
+          </a>
         </div>
 
         <!-- Mobile Menu Toggle Button -->
-        <div class="flex md:hidden">
-          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-label="切換選單" class="p-2 rounded-lg text-[#D4AF37] hover:bg-[#800020]/40 focus:outline-none">
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 rounded-md focus:outline-none">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
@@ -92,488 +84,427 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#160d10] border-b border-[#800020] px-4 pt-2 pb-6 space-y-2">
-      <a href="index.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        首頁
-      </a>
-      <a href="roster.html" class="block px-4 py-2.5 rounded-lg text-base font-bold text-[#D4AF37] bg-[#800020]/50 border-l-4 border-[#D4AF37]">
-        哈棒陣容
-      </a>
-      <a href="legends.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        傳奇戰績
-      </a>
-      <a href="merch.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        哈棒庶務
-      </a>
-      <a href="meet_the_team.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        團隊基地
-      </a>
-      <div class="pt-3">
-        <button class="easter-egg-trigger w-full text-center px-4 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white border border-[#D4AF37]">
-          🔞 老司機通道 (未滿18勿入)
-        </button>
-      </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#181516] border-b border-[#D4AF37]/30 px-4 pt-2 pb-6 space-y-3">
+      <a href="index.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">首頁</a>
+      <a href="roster.html" class="block px-3 py-2 text-base font-semibold text-[#D4AF37] hover:bg-[#800020]/30 rounded-lg">⚾ 球員誌 (Roster)</a>
+      <a href="legends.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">🏆 傳奇 & Podcast</a>
+      <a href="merch.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">🛍️ 球隊周邊 (Merch)</a>
+      <button class="easter-egg-trigger w-full text-left px-3 py-2 text-sm font-bold text-red-400 hover:bg-red-950/40 rounded-lg flex items-center justify-between">
+        <span>🔞 老司機秘密專欄</span>
+        <span class="text-xs bg-red-800 text-white px-2 py-0.5 rounded">未成年止步</span>
+      </button>
     </div>
   </header>
 
-  <!-- ======================================================================
-       Header Banner
-       ====================================================================== -->
-  <section class="relative bg-gradient-to-b from-[#500014] via-[#1a0f12] to-[#111111] py-16 sm:py-20 border-b border-[#800020]/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#D4AF37]/50 text-xs font-bold text-[#D4AF37] mb-4">
-        <span>⚾ HOTBONE ACTIVE ROSTER</span>
+  <!-- 標題橫幅 (Header Banner) -->
+  <section class="py-14 bg-vintage-stripes border-b border-[#D4AF37]/20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#800020]/50 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">
+        <span>⚾ Official Roster & Lore</span>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-black text-white font-retro tracking-wide">
-        哈棒隊員名冊與傳奇檔案
-      </h1>
-      <p class="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto font-headline">
-        二十年歲月淬鍊的費洛蒙戰隊 —— 每一張卡牌都是一段不可磨滅的幹話傳奇。
+      <h1 class="text-4xl sm:text-5xl font-black text-white font-headline">哈棒隊球員誌</h1>
+      <p class="text-gray-300 mt-3 text-base sm:text-lg max-w-2xl mx-auto">
+        文華 14 屆經典陣容 — 每張卡牌都封印著一段血淚幹話與不可抹滅的費洛蒙傳奇！
       </p>
+
+      <!-- 提示條 -->
+      <div class="mt-6 inline-block bg-[#1f1618] border border-[#D4AF37]/40 rounded-xl px-5 py-2.5 text-xs text-[#D4AF37]">
+        💡 <strong>球員卡牌架構已就緒</strong>：後續可由我們一個一個精確填入完整名冊與隊友照片！
+      </div>
     </div>
   </section>
 
-  <!-- ======================================================================
-       核心幹部區 (Core Leaders)
-       ====================================================================== -->
-  <section class="py-16 bg-[#111111] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 篩選分類按鈕 (Filter Bar) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10">
+    <div class="flex flex-wrap items-center justify-center gap-3">
+      <button class="roster-filter-btn px-5 py-2 rounded-xl text-sm font-bold border border-[#D4AF37] bg-[#800020] text-[#D4AF37] transition" data-filter="all">
+        🔥 全體成員 (All)
+      </button>
+      <button class="roster-filter-btn px-5 py-2 rounded-xl text-sm font-bold border border-gray-700 bg-[#1a1416] text-gray-400 hover:text-white transition" data-filter="starters">
+        ⚾ 先發打線組
+      </button>
+      <button class="roster-filter-btn px-5 py-2 rounded-xl text-sm font-bold border border-gray-700 bg-[#1a1416] text-gray-400 hover:text-white transition" data-filter="bullpen">
+        🐍 牛棚幹話特攻
+      </button>
+      <button class="roster-filter-btn px-5 py-2 rounded-xl text-sm font-bold border border-gray-700 bg-[#1a1416] text-gray-400 hover:text-white transition" data-filter="legends">
+        🏆 傳奇元老殿堂
+      </button>
+    </div>
+  </div>
+
+  <!-- 球員卡牌網格 (Player Cards Grid) -->
+  <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="roster-grid">
       
-      <!-- Section Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#800020]/60 pb-4">
+      <!-- Card 1: Angus (隊長) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="starters">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">LEADERSHIP</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-white font-headline mt-1">核心幹部總指揮</h2>
+          <!-- Card Header -->
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-[#800020] text-[#D4AF37] border border-[#D4AF37]/50">
+                CAPTAIN 隊長
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">Angus 隊長</h3>
+              <p class="text-xs text-gray-400">背號 #01 ✕ 精神領袖 ✕ 費洛蒙調度官</p>
+            </div>
+            <div class="text-4xl font-black text-[#D4AF37]/40 font-sport">#01</div>
+          </div>
+
+          <!-- Avatar Silhouette / Placeholder -->
+          <div class="w-full h-48 bg-gradient-to-b from-[#2a171d] to-[#140e10] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">👑</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-yellow-400">
+              全體爭寵核心
+            </div>
+          </div>
+
+          <!-- Quotes / Tagline -->
+          <div class="p-3 rounded-xl bg-[#140e10] border-l-4 border-[#D4AF37] mb-4 text-xs text-gray-300 italic">
+            「棒球只是藉口，只要群組還在吵架，哈棒隊就永遠生氣勃勃！」
+          </div>
+
+          <!-- Ability Meter -->
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>費洛蒙調度力</span>
+                <span class="text-[#D4AF37] font-bold">99%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-red-600 to-[#D4AF37] rounded-full" style="width: 99%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>群組製造內鬥</span>
+                <span class="text-yellow-400 font-bold">98%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-yellow-500 rounded-full" style="width: 98%"></div>
+              </div>
+            </div>
+          </div>
         </div>
-        <p class="text-sm text-gray-400 mt-2 md:mt-0">支配球隊靈魂、戰術與隊費的四巨頭</p>
+
+        <!-- Footer Tags -->
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-red-950/60 text-red-300 border border-red-800">#群組核心</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-yellow-950/60 text-yellow-300 border border-yellow-800">#創隊元老</span>
+        </div>
       </div>
 
-      <!-- Executives Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- 1. 隊長 Angus (高玩) -->
-        <div id="angus" class="retro-card rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <!-- Badge & Photo -->
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border-2 border-[#D4AF37]">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=CAPTAIN+ANGUS" 
-                   alt="隊長 Angus" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#800020] text-amber-300 font-extrabold text-xs px-2.5 py-1 rounded shadow-md border border-[#D4AF37]">
-                #01 CAPTAIN
-              </div>
-              <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-[10px] text-amber-400 rounded">
-                文華 14 屆元老
-              </div>
+      <!-- Card 2: 蔡仲 (不焚者) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="starters">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-blue-900 text-blue-200 border border-blue-400/50">
+                UNBURNT 不焚者
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">蔡仲</h3>
+              <p class="text-xs text-gray-400">背號 #07 ✕ 內野鐵壁 ✕ 靈魂支柱</p>
             </div>
+            <div class="text-4xl font-black text-blue-500/40 font-sport">#07</div>
+          </div>
 
-            <!-- Profile Info -->
-            <h3 class="text-2xl font-black text-white font-headline">高玩 Angus</h3>
-            <p class="text-sm font-bold text-[#D4AF37] mt-0.5">總隊長 / 費洛蒙主宰者</p>
-            <blockquote class="text-xs italic text-gray-300 bg-black/40 p-3 rounded-lg border-l-2 border-[#D4AF37] mt-3">
-              「只要棒子夠硬、心意夠真，怡園就是我們的大聯盟！」
-            </blockquote>
-            
-            <!-- Skill / Meme Bars -->
-            <div class="mt-5 space-y-2.5 text-xs">
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>費洛蒙散發量</span>
-                  <span class="text-[#D4AF37] font-bold">99.9%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 99.9%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>揮棒生氣勃勃度</span>
-                  <span class="text-[#D4AF37] font-bold">98%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 98%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>幹話領導力</span>
-                  <span class="text-[#D4AF37] font-bold">100%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
+          <div class="w-full h-48 bg-gradient-to-b from-[#1b1c28] to-[#101116] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">🛡️</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-blue-400">
+              守備率 100%
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-[#800020]/60">
-            <span class="inline-block px-2.5 py-1 rounded bg-[#800020]/50 text-[11px] text-amber-200 border border-[#D4AF37]/30">
-              ⚡ 守備位置：全能指揮官 / 一壘主砲
-            </span>
+          <div class="p-3 rounded-xl bg-[#101116] border-l-4 border-blue-500 mb-4 text-xs text-gray-300 italic">
+            「人在球在，棒在魂在！火燒不毀的哈棒鋼鐵守備。」
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>防守抗壓性</span>
+                <span class="text-blue-400 font-bold">97%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-500 rounded-full" style="width: 97%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>靈魂純度</span>
+                <span class="text-blue-400 font-bold">95%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-blue-400 rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 2. 副隊長/不焚者 蔡仲超菜花 -->
-        <div id="cai" class="retro-card rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <!-- Badge & Photo -->
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border-2 border-orange-500">
-              <img src="https://placehold.co/600x600/800020/FFA500?text=THE+UNBURNT+CAI" 
-                   alt="副隊長 蔡仲超菜花" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-gradient-to-r from-red-600 to-orange-500 text-white font-extrabold text-xs px-2.5 py-1 rounded shadow-md border border-yellow-300">
-                #00 THE UNBURNT
-              </div>
-              <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-[10px] text-orange-400 rounded">
-                火之意志代言人
-              </div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-blue-950/60 text-blue-300 border border-blue-800">#不焚者</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-gray-800 text-gray-300">#二壘鐵閘</span>
+        </div>
+      </div>
 
-            <!-- Profile Info -->
-            <h3 class="text-2xl font-black text-white font-headline">蔡仲超菜花</h3>
-            <p class="text-sm font-bold text-orange-400 mt-0.5">副隊長 / 浴火重生不焚者</p>
-            <blockquote class="text-xs italic text-gray-300 bg-black/40 p-3 rounded-lg border-l-2 border-orange-500 mt-3">
-              「火能燒盡雜草，但燒不掉我菜花在打擊區的堅毅！」
-            </blockquote>
-            
-            <!-- Skill / Meme Bars -->
-            <div class="mt-5 space-y-2.5 text-xs">
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>耐火與重生抗性</span>
-                  <span class="text-orange-400 font-bold">100% (MAX)</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-500 to-orange-400 h-2 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>本壘衝撞防禦率</span>
-                  <span class="text-orange-400 font-bold">96%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-500 to-orange-400 h-2 rounded-full" style="width: 96%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>微甲戰友愛</span>
-                  <span class="text-orange-400 font-bold">95%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-500 to-orange-400 h-2 rounded-full" style="width: 95%"></div>
-                </div>
-              </div>
+      <!-- Card 3: Zizen (費洛蒙浪子) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="starters">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-pink-900 text-pink-200 border border-pink-400/50">
+                PHEROMONE 費洛蒙
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">Zizen</h3>
+              <p class="text-xs text-gray-400">背號 #10 ✕ 中外野手 ✕ 浪子哲學家</p>
+            </div>
+            <div class="text-4xl font-black text-pink-500/40 font-sport">#10</div>
+          </div>
+
+          <div class="w-full h-48 bg-gradient-to-b from-[#2b1722] to-[#130d11] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">💋</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-pink-400">
+              女粉競爭指標
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-[#800020]/60">
-            <span class="inline-block px-2.5 py-1 rounded bg-orange-950/60 text-[11px] text-orange-200 border border-orange-500/40">
-              🔥 守備位置：鐵壁捕手 / 副隊長
-            </span>
+          <div class="p-3 rounded-xl bg-[#130d11] border-l-4 border-pink-500 mb-4 text-xs text-gray-300 italic">
+            「給女生空間讓她們競爭一下，球場也是如此。」
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>費洛蒙擴散半徑</span>
+                <span class="text-pink-400 font-bold">100%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>浪子從容度</span>
+                <span class="text-pink-400 font-bold">98%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-pink-500 rounded-full" style="width: 98%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 3. 發言人 Zizen -->
-        <div id="zizen" class="retro-card rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <!-- Badge & Photo -->
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border-2 border-[#D4AF37]">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=SPOKESMAN+ZIZEN" 
-                   alt="發言人 Zizen" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#800020] text-amber-300 font-extrabold text-xs px-2.5 py-1 rounded shadow-md border border-[#D4AF37]">
-                #69 SPOKESMAN
-              </div>
-              <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-[10px] text-amber-400 rounded">
-                首席嘴遁大師
-              </div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-pink-950/60 text-pink-300 border border-pink-800">#浪子哲學</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-purple-950/60 text-purple-300 border border-purple-800">#外野長傳</span>
+        </div>
+      </div>
 
-            <!-- Profile Info -->
-            <h3 class="text-2xl font-black text-white font-headline">Zizen</h3>
-            <p class="text-sm font-bold text-[#D4AF37] mt-0.5">公關發言人 / 輿論心理戰術家</p>
-            <blockquote class="text-xs italic text-gray-300 bg-black/40 p-3 rounded-lg border-l-2 border-[#D4AF37] mt-3">
-              「球可以落地，但我放出去的垃圾話絕對刀刀見血。」
-            </blockquote>
-            
-            <!-- Skill / Meme Bars -->
-            <div class="mt-5 space-y-2.5 text-xs">
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>垃圾話破防率</span>
-                  <span class="text-[#D4AF37] font-bold">100%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>心靈干擾波長</span>
-                  <span class="text-[#D4AF37] font-bold">94%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 94%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>記者會應對力</span>
-                  <span class="text-[#D4AF37] font-bold">92%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 92%"></div>
-                </div>
-              </div>
+      <!-- Card 4: 彥文 (大蟒蛇) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="bullpen">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-purple-900 text-purple-200 border border-purple-400/50">
+                PYTHON 大蟒蛇
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">彥文</h3>
+              <p class="text-xs text-gray-400">背號 #69 ✕ 指定打擊 ✕ 深夜專欄主編</p>
+            </div>
+            <div class="text-4xl font-black text-purple-500/40 font-sport">#69</div>
+          </div>
+
+          <div class="w-full h-48 bg-gradient-to-b from-[#27172b] to-[#120d14] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">🐍</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-purple-400">
+              18+ 老司機認證
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-[#800020]/60">
-            <span class="inline-block px-2.5 py-1 rounded bg-[#800020]/50 text-[11px] text-amber-200 border border-[#D4AF37]/30">
-              🎙️ 守備位置：中外野廣播塔 / 開路先鋒
-            </span>
+          <div class="p-3 rounded-xl bg-[#120d14] border-l-4 border-purple-500 mb-4 text-xs text-gray-300 italic">
+            「未滿 18 歲請由大蟒蛇陪同觀看！直視最狂野的棒球秘密。」
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>老司機威力</span>
+                <span class="text-purple-400 font-bold">99%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-600 rounded-full" style="width: 99%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>深夜火力輸出</span>
+                <span class="text-purple-400 font-bold">96%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-purple-400 rounded-full" style="width: 96%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <!-- 4. 財務長 王喬緯 -->
-        <div id="wang" class="retro-card rounded-2xl p-6 flex flex-col justify-between">
-          <div>
-            <!-- Badge & Photo -->
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border-2 border-[#D4AF37]">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=CFO+WANG" 
-                   alt="財務長 王喬緯" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#800020] text-amber-300 font-extrabold text-xs px-2.5 py-1 rounded shadow-md border border-[#D4AF37]">
-                #88 CFO
-              </div>
-              <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-[10px] text-amber-400 rounded">
-                金庫守護者
-              </div>
-            </div>
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-purple-950/60 text-purple-300 border border-purple-800">#深夜專欄</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-red-950/60 text-red-300 border border-red-800">#核彈重砲</span>
+        </div>
+      </div>
 
-            <!-- Profile Info -->
-            <h3 class="text-2xl font-black text-white font-headline">王喬緯</h3>
-            <p class="text-sm font-bold text-[#D4AF37] mt-0.5">財務長 / 財政神之手</p>
-            <blockquote class="text-xs italic text-gray-300 bg-black/40 p-3 rounded-lg border-l-2 border-[#D4AF37] mt-3">
-              「吃熱炒可以，點生啤請先算好公積金餘額！」
-            </blockquote>
-            
-            <!-- Skill / Meme Bars -->
-            <div class="mt-5 space-y-2.5 text-xs">
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>隊費精準度</span>
-                  <span class="text-[#D4AF37] font-bold">100%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 100%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>熱炒分帳速度</span>
-                  <span class="text-[#D4AF37] font-bold">99%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 99%"></div>
-                </div>
-              </div>
-              <div>
-                <div class="flex justify-between text-gray-400 font-medium mb-1">
-                  <span>採購殺價率</span>
-                  <span class="text-[#D4AF37] font-bold">93%</span>
-                </div>
-                <div class="w-full bg-[#2a171d] rounded-full h-2">
-                  <div class="bg-gradient-to-r from-red-600 to-[#D4AF37] h-2 rounded-full" style="width: 93%"></div>
-                </div>
-              </div>
+      <!-- Card 5: 阿昕 & 張BO (吐槽大師組) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="bullpen">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-emerald-900 text-emerald-200 border border-emerald-400/50">
+                TACTICS 吐槽雙煞
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">阿昕 & 張BO</h3>
+              <p class="text-xs text-gray-400">背號 #23 / #88 ✕ 戰術分析 ✕ 無情吐槽</p>
+            </div>
+            <div class="text-4xl font-black text-emerald-500/40 font-sport">#23</div>
+          </div>
+
+          <div class="w-full h-48 bg-gradient-to-b from-[#162720] to-[#0d1411] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">🎙️</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-emerald-400">
+              Podcast 輸出擔當
             </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-[#800020]/60">
-            <span class="inline-block px-2.5 py-1 rounded bg-[#800020]/50 text-[11px] text-amber-200 border border-[#D4AF37]/30">
-              💰 守備位置：二壘守門人 / 財務長
-            </span>
+          <div class="p-3 rounded-xl bg-[#0d1411] border-l-4 border-emerald-500 mb-4 text-xs text-gray-300 italic">
+            「專門精準戳破直男幻覺，無情吐槽但球打得比誰都認真。」
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>毒舌命中率</span>
+                <span class="text-emerald-400 font-bold">100%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-500 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>搞笑默契值</span>
+                <span class="text-emerald-400 font-bold">97%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-emerald-400 rounded-full" style="width: 97%"></div>
+              </div>
+            </div>
           </div>
         </div>
 
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-emerald-950/60 text-emerald-300 border border-emerald-800">#無情吐槽</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-teal-950/60 text-teal-300 border border-teal-800">#戰術首席</span>
+        </div>
+      </div>
+
+      <!-- Card 6: 陳言愈 (傳奇滿貫砲) -->
+      <div class="player-card-item retro-card rounded-3xl p-6 flex flex-col justify-between" data-category="legends">
+        <div>
+          <div class="flex justify-between items-start mb-4">
+            <div>
+              <span class="inline-block px-3 py-1 rounded-full text-xs font-black bg-amber-900 text-amber-200 border border-amber-400/50">
+                HALL OF FAME 傳奇
+              </span>
+              <h3 class="text-2xl font-black text-white font-headline mt-2">陳言愈</h3>
+              <p class="text-xs text-gray-400">背號 #99 ✕ 滿貫傳奇 ✕ 永恆神話</p>
+            </div>
+            <div class="text-4xl font-black text-amber-500/40 font-sport">#99</div>
+          </div>
+
+          <div class="w-full h-48 bg-gradient-to-b from-[#2b2214] to-[#14100b] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-6xl">💥</span>
+              <p class="text-[11px] text-gray-500 mt-2 font-mono">PHOTO READY FOR UPLOAD</p>
+            </div>
+            <div class="absolute bottom-2 right-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-amber-400">
+              傳奇滿貫全壘打
+            </div>
+          </div>
+
+          <div class="p-3 rounded-xl bg-[#14100b] border-l-4 border-amber-500 mb-4 text-xs text-gray-300 italic">
+            「那一棒劃破天際，將哈棒隊的靈魂刻在文華高中的歷史巔峰。」
+          </div>
+
+          <div class="space-y-2 text-xs">
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>全壘打破壞力</span>
+                <span class="text-amber-400 font-bold">100%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-gradient-to-r from-amber-600 to-yellow-400 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+            <div>
+              <div class="flex justify-between text-gray-400 mb-1">
+                <span>傳奇神話值</span>
+                <span class="text-amber-400 font-bold">100%</span>
+              </div>
+              <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
+                <div class="h-full bg-yellow-400 rounded-full" style="width: 100%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 pt-4 border-t border-gray-800 flex flex-wrap gap-1.5">
+          <span class="px-2 py-0.5 rounded text-[11px] bg-amber-950/60 text-amber-300 border border-amber-800">#滿貫神話</span>
+          <span class="px-2 py-0.5 rounded text-[11px] bg-yellow-950/60 text-yellow-300 border border-yellow-800">#殿堂級球員</span>
+        </div>
       </div>
 
     </div>
-  </section>
 
-  <!-- ======================================================================
-       傳奇黑歷史區 (Legendary Black History)
-       ====================================================================== -->
-  <section class="py-16 bg-[#160d10] border-t-2 border-[#800020]/60 relative bg-baseball-texture">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <!-- Section Header -->
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-red-950/70 border border-red-500 text-xs font-bold text-red-400 mb-3">
-          <span>⚠️ 隊史極機密檔案</span>
-        </div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline">
-          傳奇黑歷史名冊
-        </h2>
-        <p class="text-gray-400 mt-2 text-sm sm:text-base">
-          那些在文華怡園被載入史冊、笑到腹肌抽筋的經典名場面傳奇英雄
-        </p>
+    <!-- 底部新增隊員引導區 -->
+    <div class="mt-16 bg-[#161214] border-2 border-dashed border-[#D4AF37]/40 rounded-3xl p-8 text-center max-w-3xl mx-auto">
+      <div class="text-3xl mb-3">➕⚾</div>
+      <h3 class="text-xl font-bold text-white">更多哈棒隊員卡牌持續建置中</h3>
+      <p class="text-sm text-gray-400 mt-2">
+        等架構上線後，只要將隊友姓名、背號、守備位置、幹話語錄或帥照提供給我，我將立即為你更新球員誌！
+      </p>
+      <div class="mt-5">
+        <a href="index.html#contact" class="inline-block px-6 py-2.5 rounded-xl bg-[#800020] text-[#D4AF37] text-sm font-bold border border-[#D4AF37] hover:scale-105 transition">
+          📩 申請加入名冊 / 填寫資料
+        </a>
       </div>
-
-      <!-- 3 Meme Heroes Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        
-        <!-- 1. 悲劇全壘打英雄 陳言愈 -->
-        <div class="retro-card rounded-2xl p-6 flex flex-col justify-between border-2 border-red-800/80">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border border-red-500/50">
-              <img src="https://placehold.co/600x600/800020/FF4545?text=TRAGIC+HERO+CHEN" 
-                   alt="悲劇全壘打英雄 陳言愈" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-red-800 text-white font-black text-xs px-2.5 py-1 rounded border border-red-400">
-                #HR 悲劇英雄
-              </div>
-            </div>
-
-            <h3 class="text-2xl font-black text-white font-headline">陳言愈</h3>
-            <p class="text-sm font-bold text-red-400 mt-0.5">「差一步回本壘」的男神</p>
-            <p class="text-xs text-gray-300 mt-3 leading-relaxed">
-              擊出哈棒隊史上飛行距離最遠的大號全壘打，卻因在繞壘途中激情振臂兼向對手發送飛吻，忘記踩三壘壘包，慘遭促請裁決出局，成為文華高中百年一遇的淒美悲劇英雄。
-            </p>
-
-            <div class="mt-4 p-3 bg-black/40 rounded-lg text-xs space-y-1 text-gray-400">
-              <div>💣 <strong>招牌事件：</strong>消失的三壘觸壘</div>
-              <div>🏆 <strong>歷史地位：</strong>哈棒隊史最深遠出局數保持人</div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-red-900/50 flex items-center justify-between text-xs">
-            <span class="text-red-400 font-bold">悲劇指數：★★★★★</span>
-            <span class="text-gray-400">#言愈哭倒本壘</span>
-          </div>
-        </div>
-
-        <!-- 2. 5K 智傑 -->
-        <div class="retro-card rounded-2xl p-6 flex flex-col justify-between border-2 border-amber-800/80">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border border-amber-500/50">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=5K+LEGEND+CHIEH" 
-                   alt="5K 智傑" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-[#800020] text-amber-300 font-black text-xs px-2.5 py-1 rounded border border-amber-400">
-                #5K 鐵壁好手
-              </div>
-            </div>
-
-            <h3 class="text-2xl font-black text-white font-headline">智傑</h3>
-            <p class="text-sm font-bold text-amber-400 mt-0.5">單場 5 次三振的極限男人</p>
-            <p class="text-xs text-gray-300 mt-3 leading-relaxed">
-              在一場僅有 7 局的傳奇友誼賽中，憑藉無與倫比的豪邁揮空英姿，達成「單場 5 次三振 (Platinum Sombrero)」的罕見史詩成就。每次揮棒都帶有強大風壓，據說能吹熄休息區的打火機。
-            </p>
-
-            <div class="mt-4 p-3 bg-black/40 rounded-lg text-xs space-y-1 text-gray-400">
-              <div>🌪️ <strong>招牌事件：</strong>人工造風神話</div>
-              <div>🏆 <strong>歷史地位：</strong>怡園電風扇稱號創始者</div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-amber-900/50 flex items-center justify-between text-xs">
-            <span class="text-amber-400 font-bold">揮空風速：12級強風</span>
-            <span class="text-gray-400">#智傑吹拂</span>
-          </div>
-        </div>
-
-        <!-- 3. 消失的手套 柏辰 -->
-        <div class="retro-card rounded-2xl p-6 flex flex-col justify-between border-2 border-purple-800/80">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-5 border border-purple-500/50">
-              <img src="https://placehold.co/600x600/800020/9D4EDD?text=VANISHED+GLOVE+BOCHEN" 
-                   alt="消失的手套 柏辰" 
-                   class="w-full h-full object-cover">
-              <div class="absolute top-3 left-3 bg-purple-900 text-purple-200 font-black text-xs px-2.5 py-1 rounded border border-purple-400">
-                #GLOVE 異次元
-              </div>
-            </div>
-
-            <h3 class="text-2xl font-black text-white font-headline">柏辰</h3>
-            <p class="text-sm font-bold text-purple-400 mt-0.5">手套消失百慕達創造者</p>
-            <p class="text-xs text-gray-300 mt-3 leading-relaxed">
-              剛花重金購入頂級 Rawlings 手套，於第三局外野接球時連手套帶球一同甩入文華怡園濃密樹叢中，從此手套如同墜入異次元黑洞，全隊動員 15 人搜尋 3 小時未果，成為球隊未解之謎。
-            </p>
-
-            <div class="mt-4 p-3 bg-black/40 rounded-lg text-xs space-y-1 text-gray-400">
-              <div>🌌 <strong>招牌事件：</strong>怡園百慕達手套事件</div>
-              <div>🏆 <strong>歷史地位：</strong>樹叢供品大師</div>
-            </div>
-          </div>
-
-          <div class="mt-6 pt-4 border-t border-purple-900/50 flex items-center justify-between text-xs">
-            <span class="text-purple-400 font-bold">神秘指數：100%</span>
-            <span class="text-gray-400">#手套在哪裡</span>
-          </div>
-        </div>
-
-      </div>
-
     </div>
   </section>
 
-  <!-- ======================================================================
-       共用頁尾 (Footer)
-       ====================================================================== -->
-  <footer class="bg-[#0c0809] border-t border-[#800020] text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-        <div class="md:col-span-2 space-y-4">
-          <div class="flex items-center space-x-3">
-            <span class="text-3xl">⚾</span>
-            <span class="text-2xl font-black text-[#D4AF37] font-retro tracking-wider">HOTBONE 文華哈棒隊</span>
-          </div>
-          <p class="text-sm text-gray-400 max-w-md leading-relaxed">
-            創立於 2003 年台中市立文華高中 14 屆。「棒球只是理由，聚在一起才是目的。」揮灑費洛蒙汗汁，生氣勃勃走出校園。
-          </p>
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#1f1417] border border-[#D4AF37]/30 text-xs">
-            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 via-green-400 to-purple-500"></span>
-            <span class="rainbow-gradient-text font-bold">Gay Pride & Vintage Baseball Ally</span>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">快速導航</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="hover:text-[#D4AF37] transition-colors">首頁</a></li>
-            <li><a href="roster.html" class="hover:text-[#D4AF37] transition-colors">哈棒陣容 (名冊)</a></li>
-            <li><a href="legends.html" class="hover:text-[#D4AF37] transition-colors">傳奇戰績 (戰史)</a></li>
-            <li><a href="merch.html" class="hover:text-[#D4AF37] transition-colors">哈棒庶務 (周邊)</a></li>
-            <li><a href="meet_the_team.html" class="hover:text-[#D4AF37] transition-colors">團隊基地 (發源地)</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">老司機機密</h4>
-          <ul class="space-y-2 text-sm">
-            <li>
-              <button class="easter-egg-trigger text-left text-pink-400 hover:text-pink-300 transition-colors font-bold">
-                🔞 老司機專欄 (未滿18勿入)
-              </button>
-            </li>
-            <li><a href="merch.html#secret" class="hover:text-[#D4AF37] transition-colors">哈棒黑歷史照片庫</a></li>
-            <li><a href="meet_the_team.html#contact" class="hover:text-[#D4AF37] transition-colors">發射費洛蒙聯絡我們</a></li>
-          </ul>
-        </div>
+  <!-- 頁尾 (Footer) -->
+  <footer class="mt-auto bg-[#0d0a0b] border-t border-[#D4AF37]/20 py-12 text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-3">
+        <img src="assets/images/logo-emblem.png" alt="HotBone Logo" class="w-8 h-8 object-contain">
+        <span class="font-bold text-[#D4AF37] font-sport">HOT BONE 文華哈棒隊</span>
       </div>
-
-      <div class="pt-8 border-t border-[#800020]/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-        <p>© 2003-2026 HotBone Baseball Club (文華哈棒隊). All Rights Reserved.</p>
-        <p class="mt-2 sm:mt-0">Powered by HTML5, Tailwind CSS & Vanilla JS</p>
-      </div>
+      <p class="text-xs text-gray-500">© 2026 HotBone Baseball Club. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- Main JavaScript -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
