@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>哈棒庶務 | HotBone 文華哈棒隊官方周邊與深夜專欄</title>
-  <meta name="description" content="文華哈棒隊官方周邊商品 — 歷代酒紅練習衫、全凸繡潮帽、木質杯墊，以及老司機深夜機密專欄。">
-  
+  <title>球隊周邊 & 老司機專欄 | HotBone 文華哈棒隊</title>
+  <meta name="description" content="文華哈棒隊 (HotBone) 官方周邊 — 專屬酒紅練習衫、隊徽刺繡老帽、費洛蒙毛巾，以及大蟒蛇彥文主持的 18 禁老司機深夜解鎖專欄！">
+  <link rel="icon" type="image/png" href="assets/images/logo-emblem.png">
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -14,11 +15,16 @@
       theme: {
         extend: {
           colors: {
-            'hb-burgundy': '#800020',
-            'hb-gold': '#D4AF37',
-            'hb-dark': '#111111',
-            'hb-dark-card': '#191214',
-            'hb-dark-accent': '#241419',
+            hb: {
+              burgundy: '#800020',
+              'burgundy-light': '#9d1135',
+              gold: '#D4AF37',
+              'gold-light': '#f3cf65',
+              dark: '#111111',
+              surface: '#181516',
+              card: '#1f181a',
+              accent: '#2c1b20'
+            }
           }
         }
       }
@@ -28,60 +34,43 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="assets/css/custom.css">
 </head>
-<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37]">
+<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37] bg-baseball-texture">
 
-  <!-- ======================================================================
-       共用導覽列 (Navbar)
-       ====================================================================== -->
-  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#800020]/60 shadow-lg">
+  <!-- 頂部導覽列 (Navbar) -->
+  <header class="sticky top-0 z-50 bg-[#111111]/90 backdrop-blur-md border-b border-[#D4AF37]/20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-20">
         
-        <!-- Logo -->
+        <!-- Brand Logo -->
         <a href="index.html" class="flex items-center space-x-3 group">
-          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-[#800020] to-[#500014] border-2 border-[#D4AF37] flex items-center justify-center shadow-md group-hover:rotate-12 transition-transform duration-300">
-            <span class="text-2xl">⚾</span>
-          </div>
-          <div>
-            <div class="flex items-center space-x-2">
-              <span class="text-2xl font-extrabold tracking-wider text-[#D4AF37] font-retro drop-shadow">HOTBONE</span>
-              <span class="text-xs px-2 py-0.5 rounded bg-[#800020] text-amber-300 font-bold border border-[#D4AF37]/40">EST. 2003</span>
-            </div>
-            <p class="text-xs text-gray-400 tracking-widest font-medium">文華哈棒隊官方旗艦</p>
+          <img src="assets/images/logo-emblem.png" alt="HotBone Emblem" class="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300">
+          <div class="flex flex-col">
+            <span class="text-2xl font-black tracking-wider text-[#D4AF37] font-sport">HOT BONE</span>
+            <span class="text-[10px] tracking-widest text-gray-400 font-bold uppercase -mt-1">文華哈棒隊 官方網站</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
-        <nav class="hidden md:flex items-center space-x-1 lg:space-x-3">
-          <a href="index.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            首頁
-          </a>
-          <a href="roster.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            哈棒陣容
-          </a>
-          <a href="legends.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            傳奇戰績
-          </a>
-          <a href="merch.html" class="px-3 py-2 rounded-lg text-sm font-bold text-[#D4AF37] bg-[#800020]/40 border border-[#D4AF37]/50 shadow-inner">
-            哈棒庶務
-          </a>
-          <a href="meet_the_team.html" class="px-3 py-2 rounded-lg text-sm font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20 transition-colors">
-            團隊基地
-          </a>
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-4">
+          <a href="index.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">首頁</a>
+          <a href="roster.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">⚾ 球員誌</a>
+          <a href="legends.html" class="nav-link px-3 py-2 text-sm font-semibold text-gray-300 hover:text-[#D4AF37] transition">🏆 傳奇 & Podcast</a>
+          <a href="merch.html" class="nav-link px-3 py-2 text-sm font-semibold text-[#D4AF37] hover:text-[#D4AF37] transition">🛍️ 球隊周邊</a>
+          <button id="easter-egg-btn" class="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-red-600 via-purple-600 to-blue-500 text-white shadow-lg hover:shadow-purple-500/50 hover:scale-105 transition-all">
+            🔞 老司機秘密
+          </button>
         </nav>
 
-        <!-- Easter Egg CTA Button -->
-        <div class="hidden sm:flex items-center space-x-3">
-          <button id="easter-egg-btn" type="button" class="relative group px-4 py-2 rounded-full font-bold text-xs tracking-wider uppercase overflow-hidden border border-[#D4AF37]/80 bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white shadow-lg hover:shadow-red-500/50 hover:scale-105 transition-all duration-300">
-            <span class="relative z-10 flex items-center space-x-1">
-              <span>🔞 老司機通道</span>
-            </span>
-          </button>
+        <!-- Social Icons -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <a href="https://www.instagram.com/hotbone_whsh" target="_blank" class="text-gray-400 hover:text-pink-400 transition" title="Instagram">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
         </div>
 
-        <!-- Mobile Menu Toggle Button -->
-        <div class="flex md:hidden">
-          <button id="mobile-menu-btn" type="button" aria-expanded="false" aria-label="切換選單" class="p-2 rounded-lg text-[#D4AF37] hover:bg-[#800020]/40 focus:outline-none">
+        <!-- Mobile Toggle Button -->
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 rounded-md focus:outline-none">
             <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
             </svg>
@@ -92,272 +81,245 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-[#160d10] border-b border-[#800020] px-4 pt-2 pb-6 space-y-2">
-      <a href="index.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        首頁
-      </a>
-      <a href="roster.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        哈棒陣容
-      </a>
-      <a href="legends.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        傳奇戰績
-      </a>
-      <a href="merch.html" class="block px-4 py-2.5 rounded-lg text-base font-bold text-[#D4AF37] bg-[#800020]/50 border-l-4 border-[#D4AF37]">
-        哈棒庶務
-      </a>
-      <a href="meet_the_team.html" class="block px-4 py-2.5 rounded-lg text-base font-medium text-gray-300 hover:text-[#D4AF37] hover:bg-[#800020]/20">
-        團隊基地
-      </a>
-      <div class="pt-3">
-        <button class="easter-egg-trigger w-full text-center px-4 py-3 rounded-xl font-bold text-sm bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white border border-[#D4AF37]">
-          🔞 老司機通道 (未滿18勿入)
-        </button>
-      </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-[#181516] border-b border-[#D4AF37]/30 px-4 pt-2 pb-6 space-y-3">
+      <a href="index.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">首頁</a>
+      <a href="roster.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">⚾ 球員誌 (Roster)</a>
+      <a href="legends.html" class="block px-3 py-2 text-base font-semibold text-gray-300 hover:bg-[#800020]/30 rounded-lg">🏆 傳奇 & Podcast</a>
+      <a href="merch.html" class="block px-3 py-2 text-base font-semibold text-[#D4AF37] hover:bg-[#800020]/30 rounded-lg">🛍️ 球隊周邊 (Merch)</a>
+      <button class="easter-egg-trigger w-full text-left px-3 py-2 text-sm font-bold text-red-400 hover:bg-red-950/40 rounded-lg flex items-center justify-between">
+        <span>🔞 老司機秘密專欄</span>
+        <span class="text-xs bg-red-800 text-white px-2 py-0.5 rounded">未成年止步</span>
+      </button>
     </div>
   </header>
 
-  <!-- ======================================================================
-       Header Banner
-       ====================================================================== -->
-  <section class="relative bg-gradient-to-b from-[#500014] via-[#1a0f12] to-[#111111] py-16 sm:py-20 border-b border-[#800020]/50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-black/60 border border-[#D4AF37]/50 text-xs font-bold text-[#D4AF37] mb-4">
-        <span>🛒 OFFICIAL MERCHANDISE</span>
+  <!-- 標題橫幅 -->
+  <section class="py-14 bg-vintage-stripes border-b border-[#D4AF37]/20 text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#800020]/50 border border-[#D4AF37]/30 text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3">
+        <span>🛍️ Official Merchandise & Secret Vault</span>
       </div>
-      <h1 class="text-4xl sm:text-6xl font-black text-white font-retro tracking-wide">
-        哈棒庶務與官方裝備
-      </h1>
-      <p class="text-gray-300 mt-4 text-base sm:text-lg max-w-2xl mx-auto font-headline">
-        歷代酒紅戰袍、立體刺繡潮帽與怡園紀念杯墊 —— 穿戴哈棒靈魂，隨時隨地散發費洛蒙。
+      <h1 class="text-4xl sm:text-5xl font-black text-white font-headline">球隊周邊 ✕ 深夜專欄</h1>
+      <p class="text-gray-300 mt-3 text-base sm:text-lg max-w-2xl mx-auto">
+        穿上專屬酒紅練習衫，感受生氣勃勃的球場魅力；或者鼓起勇氣，解鎖大蟒蛇彥文的深夜秘密領域！
       </p>
     </div>
   </section>
 
-  <!-- ======================================================================
-       商品卡片區 (Merchandise Showcase)
-       ====================================================================== -->
-  <section class="py-16 bg-[#111111] relative">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- 周邊商品展示區 (Merchandise Showcase) -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <div class="inline-block px-3 py-1 bg-[#800020]/40 border border-[#800020] text-[#D4AF37] text-xs font-bold rounded-full mb-2">
+        🔥 限量周邊 ✕ 潮牌質感
+      </div>
+      <h2 class="text-3xl font-extrabold text-white font-headline">哈棒官方精品系列</h2>
+      <p class="text-gray-400 text-sm mt-2">
+        由文華 14 屆資深幹話設計師操刀，兼具美式復古運動與潮牌街頭感
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       
-      <!-- Section Title -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-[#800020]/60 pb-4">
+      <!-- Product 1: 酒紅選手練習衫 -->
+      <div class="retro-card rounded-3xl p-6 flex flex-col justify-between group">
         <div>
-          <span class="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">HOTBONE COLLECTION</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-white font-headline mt-1">官方周邊熱門逸品</h2>
+          <!-- Badge -->
+          <div class="flex justify-between items-center mb-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-[#800020] text-[#D4AF37] border border-[#D4AF37]/40">
+              SIGNATURE 招牌
+            </span>
+            <span class="text-xs text-yellow-400 font-bold bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">
+              即將發售 (Coming Soon)
+            </span>
+          </div>
+
+          <!-- Product Image Frame -->
+          <div class="w-full h-56 bg-gradient-to-b from-[#2d1219] to-[#140b0e] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-7xl group-hover:scale-110 transition-transform">👕</span>
+              <p class="text-[11px] text-[#D4AF37] mt-3 font-mono font-bold">BURGUNDY VARSITY JERSEY</p>
+            </div>
+            <div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-gray-300">
+              吸濕排汗 ✕ 復古版型
+            </div>
+          </div>
+
+          <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition">
+            【經典款】文華哈棒隊專屬酒紅選手練習衫
+          </h3>
+          <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+            胸前燙印 HotBone 美式火焰隊徽，背後生氣勃勃刺繡。高透氣運動布料，讓你在球場上揮灑費洛蒙不黏膩！
+          </p>
         </div>
-        <p class="text-sm text-gray-400 mt-2 md:mt-0">隊員專屬工法訂製，產量稀少，售完請洽財務長</p>
+
+        <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between">
+          <span class="text-lg font-black text-[#D4AF37] font-sport">NT$ 980</span>
+          <a href="index.html#contact" class="px-4 py-2 rounded-xl bg-[#800020] hover:bg-[#a3153b] text-white text-xs font-bold border border-[#D4AF37]/50 transition">
+            預約登記 ➔
+          </a>
+        </div>
       </div>
 
-      <!-- 4 Merch Cards Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        
-        <!-- 1. 歷代酒紅練習衫 -->
-        <div class="retro-card rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40 bg-black">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=HOTBONE+JERSEY" 
-                   alt="歷代酒紅練習衫" 
-                   class="w-full h-full object-cover">
-              <span class="absolute top-2 left-2 bg-[#800020] text-amber-300 text-[10px] font-black px-2 py-0.5 rounded border border-[#D4AF37]">
-                熱銷第一
-              </span>
+      <!-- Product 2: 隊徽老帽 -->
+      <div class="retro-card rounded-3xl p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-blue-900 text-blue-200 border border-blue-400/40">
+              VINTAGE 復古
+            </span>
+            <span class="text-xs text-yellow-400 font-bold bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">
+              即將發售 (Coming Soon)
+            </span>
+          </div>
+
+          <div class="w-full h-56 bg-gradient-to-b from-[#1c1d2b] to-[#0c0d13] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-7xl group-hover:scale-110 transition-transform">🧢</span>
+              <p class="text-[11px] text-blue-300 mt-3 font-mono font-bold">EMBROIDERED DAD CAP</p>
             </div>
-            <h3 class="text-xl font-bold text-white font-headline">歷代酒紅排汗練習衫</h3>
-            <p class="text-xs text-[#D4AF37] font-semibold mt-1">Burgundy Performance Jersey</p>
-            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-              特選勃根地酒紅頂級透氣排汗布料，胸前印製復古 HOTBONE 燙金隊徽，背後附贈費洛蒙引流散熱排孔。
-            </p>
+            <div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-gray-300">
+              立體刺繡 ✕ 挺版棉質
+            </div>
           </div>
-          <div class="mt-5 pt-4 border-t border-[#800020]/50 flex items-center justify-between">
-            <span class="text-lg font-black text-[#D4AF37] font-retro">NT$ 980</span>
-            <button onclick="alert('請洽財務長王喬緯登記尺寸與公費分攤！')" class="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#a8002a] text-white text-xs font-bold border border-[#D4AF37] transition">
-              預約訂製
-            </button>
-          </div>
+
+          <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition">
+            【隊徽刺繡】HotBone 經典美式復古老帽
+          </h3>
+          <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+            精緻電繡哈棒隊手套隊徽，百搭深黑與酒紅雙配色。遮陽抗曬，戴上瞬間提升 80% 費洛蒙氣場。
+          </p>
         </div>
 
-        <!-- 2. 全凸繡潮帽 -->
-        <div class="retro-card rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40 bg-black">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=3D+EMBROIDERY+CAP" 
-                   alt="全凸繡潮帽" 
-                   class="w-full h-full object-cover">
-              <span class="absolute top-2 left-2 bg-gradient-to-r from-amber-600 to-yellow-500 text-black text-[10px] font-black px-2 py-0.5 rounded">
-                立體刺繡
-              </span>
+        <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between">
+          <span class="text-lg font-black text-blue-300 font-sport">NT$ 650</span>
+          <a href="index.html#contact" class="px-4 py-2 rounded-xl bg-blue-900 hover:bg-blue-800 text-white text-xs font-bold border border-blue-400 transition">
+            預約登記 ➔
+          </a>
+        </div>
+      </div>
+
+      <!-- Product 3: 費洛蒙應援毛巾 -->
+      <div class="retro-card rounded-3xl p-6 flex flex-col justify-between group">
+        <div>
+          <div class="flex justify-between items-center mb-4">
+            <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-purple-900 text-purple-200 border border-purple-400/40">
+              LIMITED 限量
+            </span>
+            <span class="text-xs text-yellow-400 font-bold bg-yellow-950/60 px-2 py-0.5 rounded border border-yellow-800">
+              即將發售 (Coming Soon)
+            </span>
+          </div>
+
+          <div class="w-full h-56 bg-gradient-to-b from-[#29162e] to-[#120a14] rounded-2xl border border-gray-800 flex items-center justify-center relative overflow-hidden mb-5">
+            <div class="text-center">
+              <span class="text-7xl group-hover:scale-110 transition-transform">🧣</span>
+              <p class="text-[11px] text-purple-300 mt-3 font-mono font-bold">PHEROMONE SPORTS TOWEL</p>
             </div>
-            <h3 class="text-xl font-bold text-white font-headline">3D 全凸立體刺繡老帽</h3>
-            <p class="text-xs text-[#D4AF37] font-semibold mt-1">Vintage High-Crown Cap</p>
-            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-              美式硬挺高冠帽型，正面超厚磅 3D 凸繡「HB」經典隊徽，後方附可調式復古銅釦，修飾頭型與帥氣值。
-            </p>
+            <div class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/60 rounded text-[10px] text-gray-300">
+              雙面提花 ✕ 瞬間吸水
+            </div>
           </div>
-          <div class="mt-5 pt-4 border-t border-[#800020]/50 flex items-center justify-between">
-            <span class="text-lg font-black text-[#D4AF37] font-retro">NT$ 650</span>
-            <button onclick="alert('請洽財務長王喬緯登記尺寸與公費分攤！')" class="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#a8002a] text-white text-xs font-bold border border-[#D4AF37] transition">
-              預約訂製
-            </button>
-          </div>
+
+          <h3 class="text-xl font-bold text-white group-hover:text-[#D4AF37] transition">
+            【費洛蒙限定】哈棒隊吸汗應援大毛巾
+          </h3>
+          <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+            長版加大尺寸，滿版印製「生氣勃勃走出校園」激勵金句。無論是在場邊吶喊還是練球擦汗，都是最吸睛的應援神器！
+          </p>
         </div>
 
-        <!-- 3. 木質杯墊 -->
-        <div class="retro-card rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40 bg-black">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=WOODEN+COASTER" 
-                   alt="木質杯墊" 
-                   class="w-full h-full object-cover">
-              <span class="absolute top-2 left-2 bg-amber-900 text-amber-200 text-[10px] font-black px-2 py-0.5 rounded border border-amber-500">
-                怡園紀念
-              </span>
-            </div>
-            <h3 class="text-xl font-bold text-white font-headline">怡園紅土紀念木質杯墊</h3>
-            <p class="text-xs text-[#D4AF37] font-semibold mt-1">Laser Engraved Coaster</p>
-            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-              精選北美核桃木與櫸木雙拼，雷射雕刻文華高中 14 屆創隊標章與金句「棒球只是理由，聚在一起才是目的」。
-            </p>
-          </div>
-          <div class="mt-5 pt-4 border-t border-[#800020]/50 flex items-center justify-between">
-            <span class="text-lg font-black text-[#D4AF37] font-retro">NT$ 250</span>
-            <button onclick="alert('請洽財務長王喬緯登記尺寸與公費分攤！')" class="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#a8002a] text-white text-xs font-bold border border-[#D4AF37] transition">
-              預約訂製
-            </button>
-          </div>
+        <div class="mt-6 pt-4 border-t border-gray-800 flex items-center justify-between">
+          <span class="text-lg font-black text-purple-300 font-sport">NT$ 480</span>
+          <a href="index.html#contact" class="px-4 py-2 rounded-xl bg-purple-900 hover:bg-purple-800 text-white text-xs font-bold border border-purple-400 transition">
+            預約登記 ➔
+          </a>
         </div>
-
-        <!-- 4. 棒球專用止滑粉 -->
-        <div class="retro-card rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <div class="relative w-full aspect-square rounded-xl overflow-hidden mb-4 border border-[#D4AF37]/40 bg-black">
-              <img src="https://placehold.co/600x600/800020/D4AF37?text=HOTBONE+ROSIN+BAG" 
-                   alt="哈棒特調止滑粉" 
-                   class="w-full h-full object-cover">
-              <span class="absolute top-2 left-2 bg-purple-900 text-purple-200 text-[10px] font-black px-2 py-0.5 rounded border border-purple-500">
-                費洛蒙限定
-              </span>
-            </div>
-            <h3 class="text-xl font-bold text-white font-headline">哈棒費洛蒙防滑松香粉</h3>
-            <p class="text-xs text-[#D4AF37] font-semibold mt-1">HotBone Grip Resin Bag</p>
-            <p class="text-xs text-gray-400 mt-2 leading-relaxed">
-              天然松香加入微量雄性麝香香氣，揮棒前輕輕一拍，白煙裊裊，震懾投手並牢固掌控球棒軌跡。
-            </p>
-          </div>
-          <div class="mt-5 pt-4 border-t border-[#800020]/50 flex items-center justify-between">
-            <span class="text-lg font-black text-[#D4AF37] font-retro">NT$ 180</span>
-            <button onclick="alert('請洽財務長王喬緯登記尺寸與公費分攤！')" class="px-3.5 py-1.5 rounded-lg bg-[#800020] hover:bg-[#a8002a] text-white text-xs font-bold border border-[#D4AF37] transition">
-              預約訂製
-            </button>
-          </div>
-        </div>
-
       </div>
 
     </div>
+
+    <!-- 電商升級說明 -->
+    <div class="mt-12 p-6 rounded-2xl bg-[#181316] border border-gray-800 text-center max-w-2xl mx-auto text-xs text-gray-400">
+      💡 <strong>周邊商城架構提示</strong>：未來網站運行成熟後，將直接啟用 <strong>Printful 自動化印製 ✕ 藍新 (NewebPay) 安全線上金流</strong>，目前可先透過「發射費洛蒙」登記搶先預購！
+    </div>
   </section>
 
-  <!-- ======================================================================
-       老司機深夜專欄 (#secret 隱藏彩蛋區)
-       ====================================================================== -->
-  <section id="secret" class="py-20 bg-[#0d0709] border-t-2 border-red-900/80 relative secret-locked overflow-hidden">
+  <!-- 老司機深夜秘密專欄區塊 (Secret Vault 18+) -->
+  <section id="secret" class="py-20 bg-[#140b0e] border-t-2 border-red-800/60 relative secret-locked overflow-hidden">
     
-    <!-- 裝飾背景 -->
-    <div class="absolute inset-0 bg-vintage-stripes opacity-30"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
       
-      <!-- Section Header with Lock Status -->
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <div id="secret-status-badge" class="mb-3">
-          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-950/80 text-red-400 border border-red-600 shadow-sm">
-            🔒 老司機高機密領域（已套用 18+ 模糊濾鏡）
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <div class="flex items-center justify-center space-x-2 mb-2" id="secret-status-badge">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-red-950 text-red-400 border border-red-700">
+            🔒 未解鎖機密領域
           </span>
         </div>
-        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline">
-          🔞 老司機深夜機密專欄
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-headline">
+          【老司機深夜專欄】<span class="text-red-500">大蟒蛇的秘密領域</span>
         </h2>
-        <p class="text-gray-400 mt-2 text-sm sm:text-base">
-          文華哈棒隊更衣室不為人知的肉體密辛、大蟒蛇守護神與黑歷史直擊
+        <p class="text-gray-400 text-sm mt-2">
+          未滿 18 歲請由大蟒蛇陪同觀看！直視哈棒隊最赤裸的直男日常與深夜哲學
         </p>
       </div>
 
-      <!-- 核心內容容器（包覆模糊濾鏡） -->
-      <div class="relative rounded-3xl overflow-hidden border-2 border-red-600/60 bg-[#160d10] p-6 sm:p-10 shadow-2xl rainbow-glow">
+      <!-- Secret Content Area -->
+      <div class="relative min-h-[420px] rounded-3xl bg-[#1c1014] border-2 border-red-700/50 p-6 sm:p-10 shadow-2xl">
         
-        <!-- 模糊鎖定遮罩 (Lock Overlay) -->
-        <div id="secret-lock-overlay" class="absolute inset-0 z-30 backdrop-blur-2xl bg-black/75 flex flex-col items-center justify-center p-6 text-center transition-all duration-700">
-          <div class="w-20 h-20 rounded-full bg-red-900/80 border-2 border-red-500 flex items-center justify-center text-4xl mb-4 animate-bounce">
-            🐍
-          </div>
-          <h3 class="text-2xl sm:text-3xl font-black text-white font-headline">
-            【老司機警示】未滿 18 歲請由大蟒蛇陪同觀看！
-          </h3>
-          <p class="text-gray-300 text-sm sm:text-base max-w-lg mt-3">
-            本專欄充滿直男微甲荷爾蒙、更衣室洗澡打鬧實況與隊長高玩 Angus 之生氣勃勃極限特寫。
+        <!-- 模糊遮罩 Overlay (點擊解除) -->
+        <div id="secret-lock-overlay" class="absolute inset-0 bg-[#160c0f]/90 backdrop-blur-md rounded-3xl z-20 flex flex-col items-center justify-center p-6 text-center transition-all duration-500">
+          <div class="text-6xl mb-4 animate-bounce">🔞🐍</div>
+          <h3 class="text-2xl font-black text-red-400 font-headline">【最高機密警示】</h3>
+          <p class="text-gray-300 text-sm max-w-md mt-2 leading-relaxed">
+            此區塊包含過量直男荷爾蒙、大蟒蛇彥文的深度人生體悟，以及不可外流的群組黑歷史。
           </p>
-          <button id="unlock-secret-btn" type="button" class="mt-8 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-red-600 via-pink-600 to-purple-600 text-white font-extrabold text-sm sm:text-base shadow-2xl hover:scale-105 border-2 border-yellow-300 transition-all">
-            🔓 我已年滿 18 歲・立即解鎖大蟒蛇視角
-          </button>
+          <div class="mt-6">
+            <button id="unlock-secret-btn" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-red-600 to-purple-600 text-white font-black text-sm shadow-xl hover:scale-105 transition transform rainbow-glow">
+              🔓 點此解除封印（我已做好心理準備）
+            </button>
+          </div>
+          <span class="text-[10px] text-gray-500 mt-3 font-mono">CONFIRMATION REQUIRED</span>
         </div>
 
-        <!-- 實際內容（解鎖後清晰） -->
-        <div class="secret-content-inner grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- 專欄實質內容 (解鎖後清晰可見) -->
+        <div class="secret-content-inner space-y-8">
           
-          <!-- 機密照片卡 1 -->
-          <div class="bg-[#1e1014] rounded-2xl p-5 border border-red-800/60 flex flex-col">
-            <div class="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 border border-red-600 bg-black">
-              <img src="https://placehold.co/600x450/500014/FF4545?text=LOCKER+ROOM+SECRETS" 
-                   alt="更衣室直擊" 
-                   class="w-full h-full object-cover">
-              <span class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 text-[10px] text-pink-400 font-bold rounded">
-                更衣室實況 #01
-              </span>
+          <div class="p-6 rounded-2xl bg-[#241319] border border-red-900/60">
+            <div class="flex items-center space-x-3 mb-3">
+              <span class="text-2xl">🐍</span>
+              <div>
+                <h4 class="text-lg font-bold text-[#D4AF37]">大蟒蛇彥文的深夜講堂：如何保持十年的「生氣勃勃」</h4>
+                <p class="text-xs text-gray-400">專欄主編：彥文 ✕ 費洛蒙研發部</p>
+              </div>
             </div>
-            <h4 class="text-lg font-bold text-white font-headline">更衣室裡的毛巾大戰</h4>
-            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
-              賽後慶祝時隊長 Angus 與不焚者蔡仲超互甩濕毛巾的激情畫面。空氣中瀰漫著止汗噴霧與純粹荷爾蒙。
+            <p class="text-sm text-gray-300 leading-relaxed">
+              很多人問大蟒蛇：「為什麼哈棒隊出社會十年了，棒子還是那麼生氣勃勃？」答案很簡單：<strong>永遠不要對現實妥協，並隨時保持自嘲與自戀的完美平衡！</strong> 在球場上如此，在人生的紅土跑道上更是如此。只要心中有棒，到哪裡都是主場！
             </p>
-            <div class="mt-4 pt-3 border-t border-red-900/50 text-[11px] text-pink-400 font-mono">
-              費洛蒙指數：★★★★★★
-            </div>
           </div>
 
-          <!-- 機密照片卡 2 -->
-          <div class="bg-[#1e1014] rounded-2xl p-5 border border-red-800/60 flex flex-col">
-            <div class="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 border border-red-600 bg-black">
-              <img src="https://placehold.co/600x450/500014/D4AF37?text=BIG+PYTHON+MASCOT" 
-                   alt="大蟒蛇吉祥物" 
-                   class="w-full h-full object-cover">
-              <span class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 text-[10px] text-yellow-400 font-bold rounded">
-                神聖圖騰 #02
-              </span>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="p-4 rounded-xl bg-[#241319] border border-red-900/40">
+              <h5 class="text-sm font-bold text-yellow-400 mb-1">💬 群組爭寵大賞 Top 1</h5>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                隊長 Angus 每天晚上開局：「今天誰最帥？」引發長達 300 則訊息的互損與改圖，這是哈棒隊屹立不搖的凝聚密碼。
+              </p>
             </div>
-            <h4 class="text-lg font-bold text-white font-headline">怡園神獸：野生大蟒蛇</h4>
-            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
-              傳說中文華哈棒隊的精神守護獸，凡看過大蟒蛇揮棒者，下半身棒棒硬度皆獲永久 +50% 祝福效果。
-            </p>
-            <div class="mt-4 pt-3 border-t border-red-900/50 text-[11px] text-yellow-400 font-mono">
-              硬度加成：永久生效
+
+            <div class="p-4 rounded-xl bg-[#241319] border border-red-900/40">
+              <h5 class="text-sm font-bold text-pink-400 mb-1">💋 浪子防守心理學</h5>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                Zizen 獨家傳授：「追不到的球不要硬撲，給球一點空間讓它自己滾過來。」（隊友註：這是在講外野還是講戀愛？）
+              </p>
             </div>
+
           </div>
 
-          <!-- 機密照片卡 3 -->
-          <div class="bg-[#1e1014] rounded-2xl p-5 border border-red-800/60 flex flex-col">
-            <div class="relative aspect-[4/3] rounded-xl overflow-hidden mb-4 border border-red-600 bg-black">
-              <img src="https://placehold.co/600x450/500014/9D4EDD?text=LOST+GLOVE+SHRINE" 
-                   alt="消失手套的神秘祭壇" 
-                   class="w-full h-full object-cover">
-              <span class="absolute bottom-2 left-2 px-2 py-0.5 bg-black/80 text-[10px] text-purple-400 font-bold rounded">
-                黑歷史祭壇 #03
-              </span>
-            </div>
-            <h4 class="text-lg font-bold text-white font-headline">柏辰消失手套之靈位</h4>
-            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
-              隊友在怡園草叢旁設立的紀念祭壇，每年開季前全體隊員均需在此供奉一罐麥香紅茶以祈求手套平安。
+          <div class="p-4 rounded-xl bg-gradient-to-r from-[#800020] to-[#3a1019] text-center border border-[#D4AF37]/50">
+            <p class="text-xs sm:text-sm font-bold text-[#D4AF37]">
+              🎉 恭喜你完整直視文華哈棒隊的靈魂！請隨時關注官方 Podcast 與 IG，更多深夜彩蛋持續釋出！
             </p>
-            <div class="mt-4 pt-3 border-t border-red-900/50 text-[11px] text-purple-400 font-mono">
-              供奉狀態：香火鼎盛
-            </div>
           </div>
 
         </div>
@@ -367,59 +329,17 @@
     </div>
   </section>
 
-  <!-- ======================================================================
-       共用頁尾 (Footer)
-       ====================================================================== -->
-  <footer class="bg-[#0c0809] border-t border-[#800020] text-gray-400 py-12">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
-        <div class="md:col-span-2 space-y-4">
-          <div class="flex items-center space-x-3">
-            <span class="text-3xl">⚾</span>
-            <span class="text-2xl font-black text-[#D4AF37] font-retro tracking-wider">HOTBONE 文華哈棒隊</span>
-          </div>
-          <p class="text-sm text-gray-400 max-w-md leading-relaxed">
-            創立於 2003 年台中市立文華高中 14 屆。「棒球只是理由，聚在一起才是目的。」揮灑費洛蒙汗汁，生氣勃勃走出校園。
-          </p>
-          <div class="inline-flex items-center space-x-2 px-3 py-1 rounded bg-[#1f1417] border border-[#D4AF37]/30 text-xs">
-            <span class="w-2 h-2 rounded-full bg-gradient-to-r from-red-500 via-green-400 to-purple-500"></span>
-            <span class="rainbow-gradient-text font-bold">Gay Pride & Vintage Baseball Ally</span>
-          </div>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">快速導航</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="index.html" class="hover:text-[#D4AF37] transition-colors">首頁</a></li>
-            <li><a href="roster.html" class="hover:text-[#D4AF37] transition-colors">哈棒陣容 (名冊)</a></li>
-            <li><a href="legends.html" class="hover:text-[#D4AF37] transition-colors">傳奇戰績 (戰史)</a></li>
-            <li><a href="merch.html" class="hover:text-[#D4AF37] transition-colors">哈棒庶務 (周邊)</a></li>
-            <li><a href="meet_the_team.html" class="hover:text-[#D4AF37] transition-colors">團隊基地 (發源地)</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <h4 class="text-sm font-bold uppercase tracking-wider text-[#D4AF37] mb-4">老司機機密</h4>
-          <ul class="space-y-2 text-sm">
-            <li>
-              <button class="easter-egg-trigger text-left text-pink-400 hover:text-pink-300 transition-colors font-bold">
-                🔞 老司機專欄 (未滿18勿入)
-              </button>
-            </li>
-            <li><a href="merch.html#secret" class="hover:text-[#D4AF37] transition-colors">哈棒黑歷史照片庫</a></li>
-            <li><a href="meet_the_team.html#contact" class="hover:text-[#D4AF37] transition-colors">發射費洛蒙聯絡我們</a></li>
-          </ul>
-        </div>
+  <!-- 頁尾 (Footer) -->
+  <footer class="mt-auto bg-[#0d0a0b] border-t border-[#D4AF37]/20 py-12 text-gray-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="flex items-center justify-center space-x-3 mb-3">
+        <img src="assets/images/logo-emblem.png" alt="HotBone Logo" class="w-8 h-8 object-contain">
+        <span class="font-bold text-[#D4AF37] font-sport">HOT BONE 文華哈棒隊</span>
       </div>
-
-      <div class="pt-8 border-t border-[#800020]/40 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
-        <p>© 2003-2026 HotBone Baseball Club (文華哈棒隊). All Rights Reserved.</p>
-        <p class="mt-2 sm:mt-0">Powered by HTML5, Tailwind CSS & Vanilla JS</p>
-      </div>
+      <p class="text-xs text-gray-500">© 2026 HotBone Baseball Club. All Rights Reserved.</p>
     </div>
   </footer>
 
-  <!-- Main JavaScript -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>

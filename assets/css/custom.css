@@ -5,14 +5,17 @@
    ========================================================================== */
 
 /* Google Fonts 載入 */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;700&display=swap');
 
 :root {
   --hb-burgundy: #800020;
+  --hb-burgundy-light: #9d1135;
   --hb-gold: #D4AF37;
+  --hb-gold-light: #f3cf65;
   --hb-dark: #111111;
-  --hb-dark-card: #191214;
-  --hb-dark-accent: #241419;
+  --hb-dark-surface: #181516;
+  --hb-dark-card: #1f181a;
+  --hb-dark-accent: #2c1b20;
 }
 
 body {
@@ -26,6 +29,11 @@ body {
   font-family: 'Cinzel', 'Playfair Display', serif;
 }
 
+.font-sport {
+  font-family: 'Oswald', 'Montserrat', sans-serif;
+  letter-spacing: 0.05em;
+}
+
 .font-headline {
   font-family: 'Playfair Display', 'Noto Sans TC', serif;
 }
@@ -36,8 +44,8 @@ body {
     45deg,
     rgba(128, 0, 32, 0.08),
     rgba(128, 0, 32, 0.08) 15px,
-    rgba(0, 0, 0, 0.2) 15px,
-    rgba(0, 0, 0, 0.2) 30px
+    rgba(0, 0, 0, 0.25) 15px,
+    rgba(0, 0, 0, 0.25) 30px
   );
 }
 
@@ -53,11 +61,15 @@ body {
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: rainbow-shift 5s linear infinite;
+  animation: rainbow-shift 6s linear infinite;
 }
 
 .rainbow-glow {
-  box-shadow: 0 0 25px rgba(255, 69, 69, 0.35), 0 0 45px rgba(0, 210, 106, 0.2), 0 0 60px rgba(157, 78, 221, 0.3);
+  box-shadow: 0 0 25px rgba(255, 69, 69, 0.3), 0 0 45px rgba(0, 210, 106, 0.18), 0 0 60px rgba(157, 78, 221, 0.25);
+}
+
+.rainbow-glow-sm {
+  box-shadow: 0 0 15px rgba(255, 69, 69, 0.25), 0 0 25px rgba(157, 78, 221, 0.2);
 }
 
 .rainbow-border {
@@ -97,7 +109,7 @@ body {
   min-width: 100%;
   align-items: center;
   justify-content: space-around;
-  animation: scroll-marquee 28s linear infinite;
+  animation: scroll-marquee 32s linear infinite;
 }
 
 @keyframes scroll-marquee {
@@ -109,7 +121,7 @@ body {
   }
 }
 
-/* Hover 暫停跑馬燈（透過 CSS 亦提供支援，JS 同步監聽） */
+/* Hover 暫停跑馬燈 */
 .marquee-wrapper:hover .marquee-content,
 .marquee-paused {
   animation-play-state: paused !important;
@@ -119,7 +131,7 @@ body {
 .retro-card {
   transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background-color: var(--hb-dark-card);
-  border: 1px solid rgba(212, 175, 55, 0.25);
+  border: 1px solid rgba(212, 175, 55, 0.22);
   position: relative;
   overflow: hidden;
 }
@@ -143,9 +155,9 @@ body {
 }
 
 .retro-card:hover {
-  transform: translateY(-8px) scale(1.01);
+  transform: translateY(-6px) scale(1.01);
   border-color: var(--hb-gold);
-  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.4), 0 0 20px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.4), 0 0 20px rgba(212, 175, 55, 0.25);
 }
 
 .retro-card:hover::before {
@@ -174,7 +186,7 @@ body {
   position: relative;
 }
 .baseball-stitching-top::before {
-  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
+  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
   position: absolute;
   top: 0;
   left: 0;
@@ -185,7 +197,7 @@ body {
   line-height: 6px;
   letter-spacing: 4px;
   overflow: hidden;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 /* 自訂滾動條 */
@@ -202,4 +214,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #D4AF37;
 }
-
