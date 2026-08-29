@@ -31,14 +31,22 @@ function setActiveNavLink() {
 }
 
 /**
- * 1. 老司機彩蛋按鈕監聽
- * 點擊跳出 confirm 視窗，確認後導向 merch.html#secret
+ * 1. 老司機彩蛋按鈕監聽 (串接會員檢查)
+ * 若未登入 -> 彈出登入 Modal
+ * 若已登入 -> 跳出 confirm 並導向解鎖
  */
 function initEasterEgg() {
   const eggButtons = document.querySelectorAll('#easter-egg-btn, .easter-egg-trigger');
   eggButtons.forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+
+      // 檢查是否登入
+      if (window.HotBoneAuth && !window.HotBoneAuth.user) {
+        window.HotBoneAuth.openModal('login', '【老司機專屬】請先登入哈棒會員以解鎖深夜專欄！');
+        return;
+      }
+
       const warningText = '【老司機警示】未滿 18 歲請由大蟒蛇陪同觀看！\n\n確定要進入哈棒隊深夜機密領域嗎？';
       if (window.confirm(warningText)) {
         if (window.location.pathname.includes('merch.html')) {
@@ -103,20 +111,39 @@ function initSecretSection() {
 
   // 檢查 URL Hash 是否為 #secret
   if (window.location.hash === '#secret') {
-    unlockSecretArea();
+    if (window.HotBoneAuth && !window.HotBoneAuth.user) {
+      // 延遲一點等 auth 初始化
+      setTimeout(() => {
+        if (!window.HotBoneAuth.user) {
+          window.HotBoneAuth.openModal('login', '【老司機專屬】請先登入哈棒會員以解鎖深夜專欄！');
+        } else {
+          unlockSecretArea();
+        }
+      }, 500);
+    } else {
+      unlockSecretArea();
+    }
   }
 
   // 監聽 hashchange 事件
   window.addEventListener('hashchange', () => {
     if (window.location.hash === '#secret') {
-      unlockSecretArea();
-      secretSection.scrollIntoView({ behavior: 'smooth' });
+      if (window.HotBoneAuth && !window.HotBoneAuth.user) {
+        window.HotBoneAuth.openModal('login', '【老司機專屬】請先登入哈棒會員以解鎖深夜專欄！');
+      } else {
+        unlockSecretArea();
+        secretSection.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   });
 
   // 解鎖按鈕點擊
   if (unlockBtn) {
     unlockBtn.addEventListener('click', () => {
+      if (window.HotBoneAuth && !window.HotBoneAuth.user) {
+        window.HotBoneAuth.openModal('login', '【老司機專屬】請先登入哈棒會員以解鎖深夜專欄！');
+        return;
+      }
       const confirmed = window.confirm('【老司機警示】未滿 18 歲請由大蟒蛇陪同觀看！\n\n您已做好直視費洛蒙的心理準備了嗎？');
       if (confirmed) {
         unlockSecretArea();
@@ -160,7 +187,6 @@ function initPheromoneForm() {
       const nameInput = document.getElementById('form-name');
       const senderName = nameInput && nameInput.value.trim() ? nameInput.value.trim() : '熱血球友';
 
-      // 觸發自訂通知彈窗 / Toast
       showPheromoneToast(senderName);
       form.reset();
     });
