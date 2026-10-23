@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initPheromoneForm();
   initPodcastPlayer();
   initRosterFilter();
+  initNewsFilter();
   setActiveNavLink();
 });
 
@@ -295,6 +296,39 @@ function initRosterFilter() {
         if (filter === 'all' || category === filter) {
           card.style.display = 'block';
           card.classList.add('animate-fadeIn');
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+
+/**
+ * 8. 最新情報分類標籤篩選器 (index.html)
+ */
+function initNewsFilter() {
+  const tabs = document.querySelectorAll('.news-tab-btn');
+  const newsCards = document.querySelectorAll('.news-item-card');
+
+  if (!tabs.length || !newsCards.length) return;
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const filter = tab.getAttribute('data-filter') || 'all';
+
+      tabs.forEach(t => {
+        t.classList.remove('bg-[#800020]', 'text-[#D4AF37]', 'border-[#D4AF37]');
+        t.classList.add('bg-[#140e10]', 'text-gray-400', 'border-gray-800');
+      });
+      tab.classList.remove('bg-[#140e10]', 'text-gray-400', 'border-gray-800');
+      tab.classList.add('bg-[#800020]', 'text-[#D4AF37]', 'border-[#D4AF37]');
+
+      newsCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter) {
+          card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }

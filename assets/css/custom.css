@@ -1,21 +1,26 @@
 @charset "UTF-8";
 
 /* ==========================================================================
-   HotBone 文華哈棒隊 - 全域美式復古運動 x 彩虹光暈自訂樣式
+   HotBone 文華哈棒隊 - NPB 日本職棒 (橫濱 DeNA 灣星隊規格) 官方設計系統
+   品牌主色：勃根地酒紅 #800020 (取代 DeNA Blue)
+   品牌輔色：閃耀暗金 #D4AF37 (取代 DeNA Gold)
+   底色與表面：暗夜黑 #111111 搭配高質感灰黑 #1A1416
    ========================================================================== */
 
 /* Google Fonts 載入 */
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@400;600;800;900&family=Noto+Sans+TC:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Oswald:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,600;0,700;0,800;0,900;1,900&family=Noto+Sans+TC:wght@400;500;700;900&family=Oswald:wght@500;600;700;900&display=swap');
 
 :root {
   --hb-burgundy: #800020;
   --hb-burgundy-light: #9d1135;
+  --hb-burgundy-dark: #4a0013;
   --hb-gold: #D4AF37;
   --hb-gold-light: #f3cf65;
   --hb-dark: #111111;
-  --hb-dark-surface: #181516;
-  --hb-dark-card: #1f181a;
-  --hb-dark-accent: #2c1b20;
+  --hb-surface: #1A1416;
+  --hb-surface-card: #1F171A;
+  --hb-surface-elevated: #281B20;
+  --hb-border-gold: #D4AF37;
 }
 
 body {
@@ -25,63 +30,205 @@ body {
   overflow-x: hidden;
 }
 
-.font-retro {
-  font-family: 'Cinzel', 'Playfair Display', serif;
-}
-
-.font-sport {
-  font-family: 'Oswald', 'Montserrat', sans-serif;
+/* 經典美式棒球與 NPB 字體 */
+.font-bebas {
+  font-family: 'Bebas Neue', 'Impact', 'Oswald', sans-serif;
   letter-spacing: 0.05em;
 }
 
-.font-headline {
-  font-family: 'Playfair Display', 'Noto Sans TC', serif;
+.font-sport {
+  font-family: 'Bebas Neue', 'Oswald', 'Montserrat', sans-serif;
+  letter-spacing: 0.04em;
 }
 
-/* 復古運動風斜線條紋背景 */
+.font-headline {
+  font-family: 'Oswald', 'Noto Sans TC', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+/* DeNA 風格主視覺巨型文字外框 (Stroke Text) */
+.text-stroke-gold {
+  -webkit-text-stroke: 1.5px #D4AF37;
+  color: transparent;
+}
+
+.text-stroke-burgundy {
+  -webkit-text-stroke: 2px #800020;
+  color: transparent;
+}
+
+/* NPB 職棒俐落卡牌硬邊框 (取代平滑 AI 圓角) */
+.npb-card {
+  background-color: var(--hb-surface);
+  border: 2px solid var(--hb-gold);
+  border-radius: 2px;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+
+.npb-card:hover {
+  transform: translateY(-4px);
+  border-color: #f3cf65;
+  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.5), 0 0 20px rgba(212, 175, 55, 0.25);
+}
+
+/* 相容既有 retro-card 類別 */
+.retro-card {
+  background-color: var(--hb-surface);
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  border-radius: 2px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.retro-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--hb-gold);
+  box-shadow: 0 12px 28px rgba(128, 0, 32, 0.45), 0 0 15px rgba(212, 175, 55, 0.25);
+}
+
+/* 高對比職棒斜角標籤 (NPB Slanted Pill / Badges) */
+.npb-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-family: 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  background-color: #D4AF37;
+  color: #111111;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.npb-badge-burgundy {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-family: 'Bebas Neue', 'Oswald', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  background-color: #800020;
+  color: #D4AF37;
+  border: 1px solid #D4AF37;
+  text-transform: uppercase;
+  border-radius: 2px;
+}
+
+.npb-skew-label {
+  display: inline-block;
+  transform: skewX(-12deg);
+  border-radius: 1px;
+}
+
+.npb-skew-label > * {
+  transform: skewX(12deg);
+}
+
+/* DeNA 背號浮水印 (Giant Athletic Jersey Watermark) */
+.npb-jersey-number {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1rem;
+  font-family: 'Bebas Neue', 'Impact', sans-serif;
+  font-size: 8.5rem;
+  line-height: 0.8;
+  font-weight: 900;
+  color: rgba(212, 175, 55, 0.08);
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 復古運動風斜線條紋背景 (球場紋理) */
 .bg-vintage-stripes {
+  background-color: #111111;
   background-image: repeating-linear-gradient(
     45deg,
-    rgba(128, 0, 32, 0.08),
-    rgba(128, 0, 32, 0.08) 15px,
-    rgba(0, 0, 0, 0.25) 15px,
-    rgba(0, 0, 0, 0.25) 30px
+    rgba(128, 0, 32, 0.09),
+    rgba(128, 0, 32, 0.09) 12px,
+    rgba(17, 17, 17, 0.95) 12px,
+    rgba(17, 17, 17, 0.95) 24px
   );
 }
 
 .bg-baseball-texture {
   background-color: #111111;
-  background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 0);
+  background-image: radial-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 0);
   background-size: 24px 24px;
 }
 
-/* Gay Pride 彩虹光暈與漸層 */
+/* 職棒賽事看板 (Scoreboard Widget) 專用樣式 */
+.scoreboard-box {
+  background: linear-gradient(180deg, #1f1418 0%, #140d10 100%);
+  border: 2px solid #D4AF37;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(212, 175, 55, 0.3);
+}
+
+.scoreboard-led {
+  font-family: 'Bebas Neue', 'Impact', monospace;
+  font-size: 2.25rem;
+  letter-spacing: 0.06em;
+  color: #f3cf65;
+  text-shadow: 0 0 10px rgba(243, 207, 101, 0.6);
+}
+
+/* 無縫跑馬燈 (Seamless Marquee) */
+.marquee-wrapper {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  background-color: #161012;
+  border-top: 2px solid #800020;
+  border-bottom: 2px solid #D4AF37;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  min-width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  animation: scroll-marquee 35s linear infinite;
+}
+
+@keyframes scroll-marquee {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee-wrapper:hover .marquee-content,
+.marquee-paused {
+  animation-play-state: paused !important;
+}
+
+/* 老司機秘密專欄解鎖模糊效果 */
+.secret-locked .secret-content-inner {
+  filter: blur(16px);
+  user-select: none;
+  pointer-events: none;
+}
+
+.secret-unlocked .secret-content-inner {
+  filter: blur(0px);
+  user-select: auto;
+  pointer-events: auto;
+}
+
+/* 彩虹文字漸層保留 */
 .rainbow-gradient-text {
-  background: linear-gradient(90deg, #ff4545, #ffa500, #ffee00, #00d26a, #00bfff, #9d4edd, #ff4545);
+  background: linear-gradient(90deg, #D4AF37, #ff6b6b, #D4AF37, #ff9f43, #D4AF37);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: rainbow-shift 6s linear infinite;
-}
-
-.rainbow-glow {
-  box-shadow: 0 0 25px rgba(255, 69, 69, 0.3), 0 0 45px rgba(0, 210, 106, 0.18), 0 0 60px rgba(157, 78, 221, 0.25);
-}
-
-.rainbow-glow-sm {
-  box-shadow: 0 0 15px rgba(255, 69, 69, 0.25), 0 0 25px rgba(157, 78, 221, 0.2);
-}
-
-.rainbow-border {
-  border-image: linear-gradient(135deg, #ff4545, #ffa500, #ffee00, #00d26a, #00bfff, #9d4edd) 1;
-}
-
-.gold-glow {
-  box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
-}
-
-.burgundy-glow {
-  box-shadow: 0 0 25px rgba(128, 0, 32, 0.6);
 }
 
 @keyframes rainbow-shift {
@@ -96,120 +243,17 @@ body {
   }
 }
 
-/* 無縫跑馬燈 (Seamless Marquee) */
-.marquee-wrapper {
-  display: flex;
-  overflow: hidden;
-  user-select: none;
-}
-
-.marquee-content {
-  display: flex;
-  flex-shrink: 0;
-  min-width: 100%;
-  align-items: center;
-  justify-content: space-around;
-  animation: scroll-marquee 32s linear infinite;
-}
-
-@keyframes scroll-marquee {
-  from {
-    transform: translateX(0%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-/* Hover 暫停跑馬燈 */
-.marquee-wrapper:hover .marquee-content,
-.marquee-paused {
-  animation-play-state: paused !important;
-}
-
-/* 復古卡牌升起與微光效果 */
-.retro-card {
-  transition: all 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  background-color: var(--hb-dark-card);
-  border: 1px solid rgba(212, 175, 55, 0.22);
-  position: relative;
-  overflow: hidden;
-}
-
-.retro-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
-  transform: skewX(-25deg);
-  transition: 0.75s;
-  pointer-events: none;
-}
-
-.retro-card:hover {
-  transform: translateY(-6px) scale(1.01);
-  border-color: var(--hb-gold);
-  box-shadow: 0 12px 30px rgba(128, 0, 32, 0.4), 0 0 20px rgba(212, 175, 55, 0.25);
-}
-
-.retro-card:hover::before {
-  left: 150%;
-}
-
-/* 老司機秘密專欄模糊解鎖效果 */
-.secret-blur-overlay {
-  transition: filter 0.8s ease, backdrop-filter 0.8s ease, opacity 0.8s ease;
-}
-
-.secret-locked .secret-content-inner {
-  filter: blur(16px);
-  user-select: none;
-  pointer-events: none;
-}
-
-.secret-unlocked .secret-content-inner {
-  filter: blur(0px);
-  user-select: auto;
-  pointer-events: auto;
-}
-
-/* 棒球縫線邊框特效 */
-.baseball-stitching-top {
-  position: relative;
-}
-.baseball-stitching-top::before {
-  content: ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  color: #ff3344;
-  font-size: 10px;
-  line-height: 6px;
-  letter-spacing: 4px;
-  overflow: hidden;
-  opacity: 0.5;
-}
-
-/* 自訂滾動條 */
+/* 自訂俐落滾動條 */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
   background: #111111;
 }
 ::-webkit-scrollbar-thumb {
   background: #800020;
-  border-radius: 4px;
+  border: 1px solid #D4AF37;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #D4AF37;
