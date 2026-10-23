@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>怡園主場與基地指南 | HotBone 文華哈棒隊 - NPB 橫濱球場規格</title>
+  <meta name="description" content="文華哈棒隊 (HotBone) 怡園主場與 Fan Club 基地 — 橫濱球場 (Yokohama Stadium) 規格指南：文華高中怡園哈棒宇宙奇異點、球場地圖、交通指南與發射費洛蒙合作表單！">
+  <link rel="icon" type="image/png" href="assets/images/logo-emblem.png">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            hb: {
+              burgundy: '#800020',
+              'burgundy-light': '#9d1135',
+              'burgundy-dark': '#4a0013',
+              gold: '#D4AF37',
+              'gold-light': '#f3cf65',
+              dark: '#111111',
+              surface: '#1A1416',
+              card: '#1F171A'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- Custom NPB DeNA Design CSS -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body class="bg-[#111111] text-gray-100 min-h-screen flex flex-col antialiased selection:bg-[#800020] selection:text-[#D4AF37] bg-baseball-texture font-sans">
+
+  <!-- ==========================================
+       NPB DeNA 風格頂部導覽列 (Top Header)
+       ========================================== -->
+  <header class="sticky top-0 z-50 bg-[#111111]/95 backdrop-blur-md border-b-2 border-[#D4AF37] shadow-xl">
+    
+    <div class="bg-[#1A1416] border-b border-[#800020]/40 text-xs py-1.5 px-4 hidden sm:block">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <div class="flex items-center space-x-3 text-gray-300">
+          <span class="npb-badge-burgundy text-[10px] py-0.5 px-2">STADIUM & FAN CLUB</span>
+          <span class="font-bold text-[#f3cf65]">主場指南：</span>
+          <span class="text-gray-300">文華高中怡園 — 哈棒宇宙奇異點 ✕ 台中捷運直達</span>
+        </div>
+        <div class="flex items-center space-x-4">
+          <a href="#fanclub" class="text-gray-300 hover:text-[#D4AF37] transition font-semibold">
+            🏆 哈棒兄弟會 (Fan Club)
+          </a>
+          <a href="merch.html" class="text-[#D4AF37] hover:text-yellow-300 font-bold">
+            🛍️ BAYSTORE 官方商城
+          </a>
+          <div class="flex items-center space-x-2.5 pl-2 border-l border-gray-700 text-gray-400">
+            <a href="https://www.instagram.com/hotbone_whsh" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition" title="Instagram">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 主導覽列 -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <a href="index.html" class="flex items-center space-x-3.5 group">
+          <img src="assets/images/logo-emblem.png" alt="HotBone Emblem" class="w-12 h-12 object-contain group-hover:scale-105 transition-transform duration-300">
+          <div class="flex flex-col">
+            <span class="text-2xl sm:text-3xl font-black tracking-wider text-[#D4AF37] font-bebas leading-none group-hover:text-yellow-300 transition-colors">
+              HOTBONE
+            </span>
+            <span class="text-[10px] tracking-widest text-gray-400 font-bold uppercase mt-0.5">
+              文華哈棒隊 官方門戶
+            </span>
+          </div>
+        </a>
+
+        <!-- 導覽連結 -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+          <a href="index.html" class="nav-link px-3.5 py-2 text-center group transition">
+            <span class="block text-sm font-black text-gray-300 group-hover:text-[#D4AF37] tracking-wider">首頁</span>
+            <span class="block text-[10px] font-mono text-gray-400 uppercase -mt-0.5">TOP</span>
+          </a>
+          <a href="roster.html" class="nav-link px-3.5 py-2 text-center group transition">
+            <span class="block text-sm font-black text-gray-300 group-hover:text-[#D4AF37] tracking-wider">選手名鑑</span>
+            <span class="block text-[10px] font-mono text-gray-400 uppercase -mt-0.5">ROSTER</span>
+          </a>
+          <a href="legends.html" class="nav-link px-3.5 py-2 text-center group transition">
+            <span class="block text-sm font-black text-gray-300 group-hover:text-[#D4AF37] tracking-wider">賽程・傳奇</span>
+            <span class="block text-[10px] font-mono text-gray-400 uppercase -mt-0.5">GAME & LORE</span>
+          </a>
+          <a href="merch.html" class="nav-link px-3.5 py-2 text-center group transition">
+            <span class="block text-sm font-black text-gray-300 group-hover:text-[#D4AF37] tracking-wider">官方商城</span>
+            <span class="block text-[10px] font-mono text-gray-400 uppercase -mt-0.5">BAYSTORE</span>
+          </a>
+          <a href="meet_the_team.html" class="nav-link px-3.5 py-2 text-center group transition">
+            <span class="block text-sm font-black text-[#D4AF37] tracking-wider">怡園主場</span>
+            <span class="block text-[10px] font-mono text-[#D4AF37] uppercase -mt-0.5">STADIUM</span>
+          </a>
+
+          <button id="easter-egg-btn" class="ml-2 px-3.5 py-2 bg-[#800020] text-[#D4AF37] border-2 border-[#D4AF37] text-xs font-black tracking-wider uppercase hover:bg-[#9d1135] transition shadow-md flex items-center space-x-1.5">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            <span>老司機機密 18+</span>
+          </button>
+
+          <div class="auth-btn-container pl-2"></div>
+        </nav>
+
+        <div class="md:hidden flex items-center">
+          <button id="mobile-menu-btn" type="button" class="text-gray-300 hover:text-white p-2 border border-gray-700 bg-[#1A1416] rounded-sm focus:outline-none" aria-expanded="false">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 行動版選單 -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#1A1416] border-b-2 border-[#D4AF37] px-4 pt-3 pb-6 space-y-2.5">
+      <a href="index.html" class="block px-3 py-2 text-base font-bold text-gray-200 hover:text-[#D4AF37]">首頁 (TOP)</a>
+      <a href="roster.html" class="block px-3 py-2 text-base font-bold text-gray-200 hover:text-[#D4AF37]">選手名鑑 (ROSTER)</a>
+      <a href="legends.html" class="block px-3 py-2 text-base font-bold text-gray-200 hover:text-[#D4AF37]">賽程・傳奇 (GAME & LORE)</a>
+      <a href="merch.html" class="block px-3 py-2 text-base font-bold text-gray-200 hover:text-[#D4AF37]">官方商城 (BAYSTORE)</a>
+      <a href="meet_the_team.html" class="block px-3 py-2 text-base font-bold text-[#D4AF37] bg-[#800020]/20 border-l-4 border-[#D4AF37]">怡園主場與基地 (STADIUM)</a>
+      <button class="easter-egg-trigger w-full text-left px-3 py-2 text-sm font-bold bg-red-950/60 border border-red-600 text-red-300 flex items-center justify-between">
+        <span>老司機深夜機密 (未滿 18 歲止步)</span>
+        <span class="text-xs bg-red-800 text-white px-2 py-0.5 font-mono">18+</span>
+      </button>
+      <div class="auth-btn-container pt-2"></div>
+    </div>
+  </header>
+
+  <!-- ==========================================
+       頁面標題橫幅 (Header Banner)
+       ========================================== -->
+  <section class="py-14 bg-vintage-stripes border-b-2 border-[#D4AF37] text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 relative z-10">
+      <div class="inline-block px-3 py-1 bg-[#800020] border border-[#D4AF37] text-[#D4AF37] text-xs font-bold uppercase tracking-widest mb-3 font-bebas">
+        YOKOHAMA STADIUM STYLE // 哈棒宇宙奇異點
+      </div>
+      <h1 class="text-4xl sm:text-6xl font-black text-white font-headline uppercase tracking-tight">
+        文華高中怡園球場指南
+      </h1>
+      <p class="text-gray-300 mt-3 text-sm sm:text-base max-w-2xl mx-auto">
+        模仿日本職棒橫濱球場規格！探索哈棒隊誕生的聖地、球場分區特權、交通地圖與發射費洛蒙合作基地！
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       怡園主場介紹與席位分區 (Yokohama Stadium Guide Style)
+       ========================================== -->
+  <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-16">
+      
+      <!-- 主場歷史介紹 -->
+      <div class="lg:col-span-7 space-y-5">
+        <span class="npb-badge-burgundy text-xs">HOME STADIUM // 聖地奇異點</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline leading-tight">
+          文華高中怡園 —<br>
+          <span class="text-[#D4AF37]">哈棒宇宙的奇異點！</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+          十年前文華高中第 14 屆校友在此揮出第一棒，建立了「棒球只是藉口」的不可思議兄弟會。怡園球場見證了無數次放學後的烈日苦練、夕陽下的逆轉全壘打，以及群組內長達十年的無情內鬥與爭寵。無論走入社會多久，只要回到怡園，棒子依然生氣勃勃！
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+          <div class="p-3 bg-[#1A1416] border border-gray-800 text-center">
+            <span class="text-[10px] text-gray-500 font-mono block">STADIUM</span>
+            <span class="font-bold text-white text-xs mt-0.5 block">文華怡園球場</span>
+          </div>
+          <div class="p-3 bg-[#1A1416] border border-gray-800 text-center">
+            <span class="text-[10px] text-gray-500 font-mono block">CAPACITY</span>
+            <span class="font-bold text-[#D4AF37] text-xs mt-0.5 block">極限費洛蒙容載</span>
+          </div>
+          <div class="p-3 bg-[#1A1416] border border-gray-800 text-center">
+            <span class="text-[10px] text-gray-500 font-mono block">SURFACE</span>
+            <span class="font-bold text-white text-xs mt-0.5 block">青春天然紅土草皮</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 球場平面示意圖卡牌 (NPB 職棒座位席風格) -->
+      <div class="lg:col-span-5">
+        <div class="npb-card p-6 border-2 border-[#D4AF37] bg-[#181116]">
+          <div class="flex justify-between items-center mb-4 border-b border-gray-800 pb-3">
+            <span class="text-sm font-black text-[#D4AF37] font-bebas">JOY GARDEN SEATING MAP</span>
+            <span class="text-[10px] text-gray-400 font-mono">SPEC: YOKOHAMA DE-NA</span>
+          </div>
+
+          <div class="space-y-3 text-xs">
+            <!-- 席位 1 -->
+            <div class="p-3 bg-[#111111] border-l-4 border-[#800020] flex justify-between items-center">
+              <div>
+                <span class="font-bold text-white block">本壘後方 VIP 爭寵席 (VIP BANTER BOX)</span>
+                <span class="text-[10px] text-gray-400">Angus 隊長調度指揮專區，全視角直擊打擊戰報</span>
+              </div>
+              <span class="npb-badge-burgundy text-[9px]">BOX SEAT</span>
+            </div>
+
+            <!-- 席位 2 -->
+            <div class="p-3 bg-[#111111] border-l-4 border-blue-500 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-white block">內野不焚者鐵壁防線 (INFIELD FORTRESS)</span>
+                <span class="text-[10px] text-gray-400">蔡仲堅守之二壘熱區，高防禦無失誤防線</span>
+              </div>
+              <span class="npb-badge-gold text-[9px]">INFIELD</span>
+            </div>
+
+            <!-- 席位 3 -->
+            <div class="p-3 bg-[#111111] border-l-4 border-pink-500 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-white block">外野草坪費洛蒙特區 (OUTFIELD LAWN)</span>
+                <span class="text-[10px] text-gray-400">Zizen 撥頭髮長傳熱區，女粉最密集應援席</span>
+              </div>
+              <span class="px-2 py-0.5 bg-pink-950 text-pink-300 text-[9px] font-bold border border-pink-700">PHEROMONE</span>
+            </div>
+
+            <!-- 席位 4 -->
+            <div class="p-3 bg-[#111111] border-l-4 border-purple-500 flex justify-between items-center">
+              <div>
+                <span class="font-bold text-white block">牛棚深夜戰術諮商所 (DUGOUT VAULT)</span>
+                <span class="text-[10px] text-gray-400">大蟒蛇彥文與吐槽雙煞策劃連環幹話火力</span>
+              </div>
+              <span class="px-2 py-0.5 bg-purple-950 text-purple-300 text-[9px] font-bold border border-purple-700">18+ DUGOUT</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 球場交通與 Google Maps 嵌入區塊 -->
+    <div class="npb-card p-6 sm:p-8 border-2 border-[#D4AF37] mb-16">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b border-gray-800 pb-4 mb-6 gap-2">
+        <div>
+          <span class="npb-badge-gold text-xs">ACCESS GUIDE // 交通指南</span>
+          <h3 class="text-2xl font-black text-white font-headline mt-1 uppercase">
+            前往文華高中怡園主場
+          </h3>
+        </div>
+        <div class="text-xs text-gray-400 font-mono">
+          LOCATION: 407 台中市西屯區寧夏路 240 號
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- Google Maps 嵌入 -->
+        <div class="lg:col-span-7 overflow-hidden border-2 border-gray-800 h-80 sm:h-96 w-full relative">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.165241905389!2d120.65588327618992!3d24.165972878389657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d84299ff5c9%3A0xe9f79bfe9d2bf9ea!2z6Ie65Lit5biC56uL5paH6I-v6auY57Sa6auY562J5Lit5a24!5e0!3m2!1szh-TW!2stw!4v1714000000000!5m2!1szh-TW!2stw" 
+            width="100%" 
+            height="100%" 
+            style="border:0; filter: contrast(1.1) brightness(0.9);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="文華高中怡園球場地圖">
+          </iframe>
+          <div class="absolute bottom-2 left-2 bg-black/80 text-[10px] text-[#D4AF37] font-mono px-2 py-0.5 border border-[#D4AF37]">
+            GOOGLE MAPS: TAICHUNG WHSH FIELD
+          </div>
+        </div>
+
+        <!-- 交通路線指引 -->
+        <div class="lg:col-span-5 space-y-4 text-xs">
+          <div class="p-4 bg-[#111111] border border-gray-800">
+            <span class="font-bold text-[#D4AF37] block text-sm mb-1">🚇 捷運直達 (Taichung MRT)</span>
+            <p class="text-gray-300 leading-relaxed">
+              搭乘台中捷運綠線至 <strong>「文華高中站」</strong> 出站，步行約 3 分鐘即可抵達校門，進入後直行穿過行政大樓即抵達怡園主場。
+            </p>
+          </div>
+
+          <div class="p-4 bg-[#111111] border border-gray-800">
+            <span class="font-bold text-[#D4AF37] block text-sm mb-1">🚌 公車資訊 (City Bus)</span>
+            <p class="text-gray-300 leading-relaxed">
+              搭乘台中市公車 29、33、53、68、72 路至「文華高中」站牌下車。
+            </p>
+          </div>
+
+          <div class="p-4 bg-[#111111] border border-gray-800">
+            <span class="font-bold text-[#D4AF37] block text-sm mb-1">🅿️ 停車指南 (Parking)</span>
+            <p class="text-gray-300 leading-relaxed">
+              周邊設有寧夏路路邊公有停車格與河南路公有收費停車場，步行約 5 分鐘抵達。
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       哈棒兄弟會 (Fan Club) 專屬基地特區 (#fanclub)
+       仿橫濱 DeNA B☆SPIRIT CLUB 會員制度規格
+       ========================================== -->
+  <section id="fanclub" class="py-16 bg-[#161012] border-t-2 border-b-2 border-[#D4AF37]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="npb-badge-gold text-xs">OFFICIAL FAN CLUB // B☆SPIRIT STYLE</span>
+        <h2 class="text-3xl sm:text-5xl font-black text-white font-headline mt-2 uppercase">
+          加入哈棒兄弟會 (FAN CLUB)
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base mt-2">
+          比照日本職棒會員制！解鎖全隊獨家黑歷史、專屬費洛蒙活力等級認證與 BAYSTORE 官方周邊優先認購！
+        </p>
+      </div>
+
+      <!-- 4 大會員階層特權卡 -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <div class="npb-card p-6 bg-[#111111] flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-gray-500 block">LEVEL 01</span>
+            <h3 class="text-xl font-black text-white font-headline mt-1">費洛蒙初號機</h3>
+            <p class="text-xs text-gray-400 mt-2">免費註冊即刻啟動，獲得專屬數位會員通行證。</p>
+            <ul class="space-y-1.5 text-xs text-gray-300 mt-4 border-t border-gray-800 pt-3">
+              <li>✔ 全站導覽列專屬會員徽章</li>
+              <li>✔ 怡園主場賽況即時預告</li>
+            </ul>
+          </div>
+          <button onclick="window.HotBoneAuth.openModal('register')" class="mt-6 w-full py-2.5 bg-[#800020] text-[#D4AF37] border border-[#D4AF37] text-xs font-black tracking-wider uppercase hover:bg-[#9d1135] transition">
+            免費註冊 ➔
+          </button>
+        </div>
+
+        <div class="npb-card p-6 bg-[#111111] flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-[#D4AF37] block">LEVEL 02</span>
+            <h3 class="text-xl font-black text-[#D4AF37] font-headline mt-1">生氣勃勃主力</h3>
+            <p class="text-xs text-gray-400 mt-2">累積贊助滿 NT$ 500，解鎖核心隊員進階特權。</p>
+            <ul class="space-y-1.5 text-xs text-gray-300 mt-4 border-t border-gray-800 pt-3">
+              <li>✔ 解鎖選手名鑑獨家爆料黑歷史</li>
+              <li>✔ 解鎖老司機深夜機密專欄 (18+)</li>
+            </ul>
+          </div>
+          <a href="profile.html" class="mt-6 w-full py-2.5 bg-[#1A1416] text-gray-200 border border-gray-700 text-xs font-black tracking-wider uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition">
+            查看通行證 ➔
+          </a>
+        </div>
+
+        <div class="npb-card p-6 bg-[#111111] flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-yellow-400 block">LEVEL 03</span>
+            <h3 class="text-xl font-black text-yellow-300 font-headline mt-1">大蟒蛇資深幹部</h3>
+            <p class="text-xs text-gray-400 mt-2">累積贊助滿 NT$ 1,500，享有商城優先認購權。</p>
+            <ul class="space-y-1.5 text-xs text-gray-300 mt-4 border-t border-gray-800 pt-3">
+              <li>✔ 酒紅練習衫優先登記權</li>
+              <li>✔ 官方 Podcast 特別來賓提問權</li>
+            </ul>
+          </div>
+          <a href="profile.html" class="mt-6 w-full py-2.5 bg-[#1A1416] text-gray-200 border border-gray-700 text-xs font-black tracking-wider uppercase text-center hover:border-[#D4AF37] hover:text-[#D4AF37] transition">
+            查看特權 ➔
+          </a>
+        </div>
+
+        <div class="npb-card p-6 bg-[#1A1416] border-2 border-[#D4AF37] flex flex-col justify-between">
+          <div>
+            <span class="text-xs font-mono text-[#f3cf65] font-black block">LEVEL 05 // VIP</span>
+            <h3 class="text-xl font-black text-white font-headline mt-1">終極哈棒之神</h3>
+            <p class="text-xs text-gray-400 mt-2">贊助突破 NT$ 5,000，終身尊榮奉入傳奇殿堂。</p>
+            <ul class="space-y-1.5 text-xs text-yellow-300 mt-4 border-t border-gray-800 pt-3">
+              <li>✔ 隊長 Angus 親筆感謝信</li>
+              <li>✔ 怡園主場開球儀式候選人</li>
+            </ul>
+          </div>
+          <a href="#contact" class="mt-6 w-full py-2.5 bg-[#800020] text-[#D4AF37] border border-[#D4AF37] text-xs font-black tracking-wider uppercase text-center hover:bg-[#9d1135] transition">
+            聯絡隊長贊助 ➔
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       發射費洛蒙 / 合作表單區塊 (#contact & #pheromone-form)
+       保留所有原有 JS ID (#pheromone-form, #form-name, #form-contact, #form-type, #form-message)
+       ========================================== -->
+  <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="npb-card p-8 sm:p-12 border-2 border-[#D4AF37] bg-[#1A1416] shadow-2xl relative">
+      
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="npb-badge-burgundy text-xs">CONTACT & SIGNALS</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white font-headline mt-1.5 uppercase">
+          發射費洛蒙 (CONTACT US)
+        </h2>
+        <p class="text-gray-300 text-xs sm:text-sm mt-2 leading-relaxed">
+          想預約友誼賽？找 91Boner 樂團表演？贊助球隊練習衫？還是單純被直男費洛蒙吸引？填寫下方表單，隊長 Angus 將親自接收你的訊號！
+        </p>
+      </div>
+
+      <!-- 核心表單 (保留 #pheromone-form 與全部 input ID) -->
+      <form id="pheromone-form" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div>
+            <label for="form-name" class="block text-xs font-black text-[#D4AF37] uppercase tracking-wider mb-2 font-mono">
+              你的大名 / 綽號 (NAME) *
+            </label>
+            <input type="text" id="form-name" required placeholder="例如：文華熱血球友 / 友隊隊長" class="w-full px-4 py-3 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none transition">
+          </div>
+          <div>
+            <label for="form-contact" class="block text-xs font-black text-[#D4AF37] uppercase tracking-wider mb-2 font-mono">
+              聯絡方式 (EMAIL / IG / LINE) *
+            </label>
+            <input type="text" id="form-contact" required placeholder="例如：@your_instagram / name@email.com" class="w-full px-4 py-3 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none transition">
+          </div>
+        </div>
+
+        <div>
+          <label for="form-type" class="block text-xs font-black text-[#D4AF37] uppercase tracking-wider mb-2 font-mono">
+            合作與交流類型 (CATEGORY)
+          </label>
+          <select id="form-type" class="w-full px-4 py-3 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none transition">
+            <option value="manager">應徵球隊經理（享有極高爭寵待遇）</option>
+            <option value="friendly">預約友誼賽（歡迎各路業餘棒球隊切磋）</option>
+            <option value="music">91Boner 樂團商演 / 音樂跨界合作</option>
+            <option value="sponsor">品牌贊助 / 酒紅選手練習衫團購</option>
+            <option value="chat">純粹被費洛蒙吸引，想跟哈棒隊打聲招呼</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="form-message" class="block text-xs font-black text-[#D4AF37] uppercase tracking-wider mb-2 font-mono">
+            發射內容 / 想對哈棒隊說的話 (MESSAGE)
+          </label>
+          <textarea id="form-message" rows="4" placeholder="請留下你的訊息，隊長與隊友將盡速回覆..." class="w-full px-4 py-3 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none transition"></textarea>
+        </div>
+
+        <div class="pt-2 text-center">
+          <button type="submit" class="w-full sm:w-auto px-12 py-4 bg-[#800020] text-[#D4AF37] border-2 border-[#D4AF37] font-black text-sm uppercase tracking-wider hover:bg-[#9d1135] transition shadow-xl hover:scale-105 transform">
+            全力發射費洛蒙 (SUBMIT SIGNAL)
+          </button>
+          <p class="text-[11px] text-gray-500 mt-3 font-mono">
+            ※ 表單送出後將即時觸發通知，亦可直接於 Instagram 私訊 <a href="https://www.instagram.com/hotbone_whsh" target="_blank" class="text-[#D4AF37] underline font-bold">@hotbone_whsh</a>
+          </p>
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       NPB 規格通用頁尾 (Multi-column Footer)
+       ========================================== -->
+  <footer class="mt-auto bg-[#0E0A0C] border-t-2 border-[#D4AF37] text-gray-400 text-sm">
+    <div class="bg-[#1A1416] border-b border-gray-800 py-4 px-4 text-center">
+      <span class="text-xs sm:text-sm font-black text-[#D4AF37] tracking-widest uppercase font-bebas">
+        HOTBONE BASEBALL CLUB // 揮灑費洛蒙汗汁，生氣勃勃走出校園！
+      </span>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="space-y-4">
+        <div class="flex items-center space-x-3">
+          <img src="assets/images/logo-emblem.png" alt="HotBone Logo" class="w-10 h-10 object-contain">
+          <div>
+            <span class="text-xl font-black text-[#D4AF37] font-bebas tracking-wider block">HOTBONE</span>
+            <span class="text-[10px] text-gray-400 font-bold block -mt-1">文華哈棒隊 官方網站</span>
+          </div>
+        </div>
+        <p class="text-xs text-gray-400 leading-relaxed">
+          文華高中第 14 屆校友業餘棒球隊。以球會友的幹話集散地，逆風小人物的熱血逆襲，非正經職棒多元宇宙。
+        </p>
+        <div class="pt-2 flex items-center space-x-3 text-gray-400">
+          <a href="https://www.instagram.com/hotbone_whsh" target="_blank" rel="noopener noreferrer" class="hover:text-pink-400 transition" title="Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-black text-[#D4AF37] uppercase tracking-wider font-mono border-l-2 border-[#800020] pl-2">
+          TEAM & SCHEDULE // 球隊與賽事
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="index.html" class="hover:text-[#D4AF37] transition">門戶首頁 (Top)</a></li>
+          <li><a href="roster.html" class="hover:text-[#D4AF37] transition">選手名鑑 (Roster)</a></li>
+          <li><a href="legends.html" class="hover:text-[#D4AF37] transition">賽程與戰報 (Schedule)</a></li>
+          <li><a href="meet_the_team.html" class="hover:text-[#D4AF37] transition">文華怡園球場 (Stadium Guide)</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-black text-[#D4AF37] uppercase tracking-wider font-mono border-l-2 border-[#800020] pl-2">
+          FAN CLUB & MEDIA // 俱樂部與媒體
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="meet_the_team.html#fanclub" class="hover:text-[#D4AF37] transition">哈棒兄弟會 (Fan Club)</a></li>
+          <li><a href="legends.html#podcast" class="hover:text-[#D4AF37] transition">官方 Podcast《文華哈棒隊》</a></li>
+          <li><a href="legends.html#91boner" class="hover:text-[#D4AF37] transition">91Boner 搖滾龐克聯名專區</a></li>
+          <li><a href="profile.html" class="hover:text-[#D4AF37] transition">費洛蒙會員通行證</a></li>
+        </ul>
+      </div>
+
+      <div class="space-y-3">
+        <h4 class="text-xs font-black text-[#D4AF37] uppercase tracking-wider font-mono border-l-2 border-[#800020] pl-2">
+          BAYSTORE & SECRET // 商城與合作
+        </h4>
+        <ul class="space-y-2 text-xs">
+          <li><a href="merch.html" class="hover:text-[#D4AF37] transition">HOTBONE BAYSTORE 官方商城</a></li>
+          <li><a href="merch.html#secret" class="hover:text-red-400 transition">老司機深夜專欄 (18+)</a></li>
+          <li><a href="meet_the_team.html#contact" class="hover:text-[#D4AF37] transition">發射費洛蒙 (Contact Us)</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-900 py-6 px-4">
+      <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-gray-500">
+        <div>
+          © 2026 HOTBONE Baseball Club. All Rights Reserved. 文華哈棒隊 版權所有
+        </div>
+        <div class="font-mono text-[11px] text-gray-600">
+          Official Domain: <a href="https://hot-bone.com" class="text-yellow-500/80 hover:text-yellow-400">hot-bone.com</a> ✕ Hosted on GitHub Pages
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 全站通用 Supabase 會員認證彈窗 (Auth Modal) -->
+  <div id="auth-modal" class="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="bg-[#1A1416] border-2 border-[#D4AF37] w-full max-w-md p-6 sm:p-8 shadow-2xl relative">
+      <button id="auth-modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white p-2 hover:bg-gray-800 transition">✕</button>
+
+      <div class="text-center mb-6">
+        <img src="assets/images/logo-emblem.png" alt="HotBone" class="w-12 h-12 mx-auto mb-2">
+        <h3 id="auth-modal-title" class="text-2xl font-black text-white font-headline">哈棒會員登入</h3>
+        <p id="auth-modal-prompt" class="text-xs text-[#D4AF37] mt-1 bg-[#800020]/60 py-1 px-3 inline-block hidden font-bold border border-[#D4AF37]/50"></p>
+      </div>
+
+      <div id="auth-error-msg" class="hidden mb-4 p-3 bg-red-950/80 border border-red-500 text-red-200 text-xs text-center"></div>
+
+      <div class="flex border-b border-gray-800 mb-6">
+        <button id="tab-login-btn" class="flex-1 py-2 text-sm font-bold text-[#D4AF37] border-b-2 border-[#D4AF37] bg-[#800020]/30 transition">會員登入</button>
+        <button id="tab-register-btn" class="flex-1 py-2 text-sm font-bold text-gray-400 border-b-2 border-transparent hover:text-white transition">免費註冊</button>
+      </div>
+
+      <div class="mb-6">
+        <button id="google-login-btn" type="button" class="w-full py-3 px-4 bg-white hover:bg-gray-100 text-gray-900 font-bold text-sm flex items-center justify-center space-x-3 shadow-md transition">
+          <svg class="w-5 h-5" viewBox="0 0 24 24">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          <span>使用 Google 帳號一鍵登入</span>
+        </button>
+      </div>
+
+      <div class="relative flex py-2 items-center mb-6">
+        <div class="flex-grow border-t border-gray-800"></div>
+        <span class="flex-shrink mx-4 text-gray-500 text-xs uppercase font-mono">OR EMAIL</span>
+        <div class="flex-grow border-t border-gray-800"></div>
+      </div>
+
+      <form id="auth-login-form" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1">電子信箱 (Email)</label>
+          <input type="email" id="login-email" required placeholder="your@email.com" class="w-full px-4 py-2.5 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1">密碼</label>
+          <input type="password" id="login-password" required placeholder="••••••••" class="w-full px-4 py-2.5 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 bg-[#800020] text-[#D4AF37] font-bold text-sm border border-[#D4AF37] hover:bg-[#9d1135] transition shadow-lg">
+          登入哈棒會員
+        </button>
+      </form>
+
+      <form id="auth-register-form" class="space-y-4 hidden">
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1">球友暱稱 / 綽號</label>
+          <input type="text" id="register-nickname" required placeholder="例如：文華大谷翔平" class="w-full px-4 py-2.5 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1">電子信箱 (Email)</label>
+          <input type="email" id="register-email" required placeholder="your@email.com" class="w-full px-4 py-2.5 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none">
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-gray-300 mb-1">設定密碼 (至少6碼)</label>
+          <input type="password" id="register-password" required minlength="6" placeholder="••••••••" class="w-full px-4 py-2.5 bg-[#111111] border border-gray-700 text-white text-sm focus:border-[#D4AF37] focus:outline-none">
+        </div>
+        <button type="submit" class="w-full py-3 bg-[#800020] text-[#D4AF37] font-bold text-sm border border-[#D4AF37] hover:bg-[#9d1135] transition shadow-lg">
+          免費註冊加入
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/supabase-auth.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
